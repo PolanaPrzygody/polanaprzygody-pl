@@ -228,7 +228,7 @@ export default function UmowSiePage() {
                         Akceptuję{" "}
                         <Link
                           href="/polityka-prywatnosci"
-                          className="text-polana-dark-green underline hover:text-polana-lime transition-colors"
+                          className="text-polana-dark-green font-medium underline decoration-polana-olive/50 hover:decoration-polana-dark-green hover:decoration-2 transition-all"
                           target="_blank"
                         >
                           Politykę prywatności i regulamin serwisu

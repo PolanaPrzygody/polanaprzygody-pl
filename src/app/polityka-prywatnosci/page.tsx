@@ -17,9 +17,18 @@ export default function PolitykaPrywatnosciPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="prose prose-lg max-w-none prose-headings:text-polana-dark-green prose-p:text-polana-dark-green/80 prose-li:text-polana-dark-green/80 prose-a:text-polana-lime prose-a:no-underline hover:prose-a:underline prose-strong:text-polana-dark-green"
+            className="prose prose-lg max-w-none 
+              prose-headings:text-polana-dark-green prose-headings:!font-bold
+              prose-h2:!text-xl prose-h2:!font-bold prose-h2:!mt-10 prose-h2:!mb-6 prose-h2:!pb-3 prose-h2:border-b-2 prose-h2:border-polana-lime/30
+              prose-h3:text-xl prose-h3:!font-bold prose-h3:!mt-10 prose-h3:!mb-4
+              prose-h4:text-lg prose-h4:!font-bold prose-h4:!mt-8 prose-h4:!mb-4 prose-h4:text-polana-dark-green/90
+              prose-p:text-polana-dark-green/80 prose-p:!mb-6 prose-p:leading-relaxed
+              prose-li:text-polana-dark-green/80 prose-li:!mb-3 prose-li:leading-relaxed
+              prose-ul:!my-6 prose-ul:pl-6 prose-ul:list-disc prose-ul:marker:text-polana-lime
+              prose-a:text-polana-lime prose-a:no-underline hover:prose-a:underline 
+              prose-strong:text-polana-dark-green"
           >
-            <p className="lead text-xl text-polana-dark-green/70 mb-8">
+            <p className="lead text-xl text-polana-dark-green/70 mb-6">
               Witamy w Polityce prywatności i regulaminie serwisu Polana Przygody - Centrum Rozwoju Dziecka.
             </p>
 
@@ -52,13 +61,18 @@ export default function PolitykaPrywatnosciPage() {
               </div>
             </div>
 
-            <h2>Regulamin Serwisu</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">1</span>
+                Regulamin Serwisu
+              </h2>
+            </div>
 
-            <h3>Specyfikacja Usług Świadczonych Drogą Elektroniczną</h3>
+            <h3 className="font-bold">Specyfikacja Usług Świadczonych Drogą Elektroniczną</h3>
             <p>
               Serwis internetowy polanaprzygody.pl świadczy następujące usługi drogą elektroniczną:
             </p>
-            <ul>
+            <ul className="mb-2 mt-2 list-disc list-inside">
               <li>
                 <strong>Dostęp do informacji</strong> – udostępnianie informacji o ofercie
                 Centrum Rozwoju Dziecka Polana Przygody, w tym o świadczonych usługach
@@ -76,11 +90,11 @@ export default function PolitykaPrywatnosciPage() {
               </li>
             </ul>
 
-            <h3>Wymagania Techniczne</h3>
+            <h3 className="font-bold">Wymagania Techniczne</h3>
             <p>
               Do korzystania z serwisu niezbędne jest:
             </p>
-            <ul>
+            <ul className="mb-2 mt-2 list-disc list-inside">
               <li>urządzenie z dostępem do sieci Internet (komputer, tablet, smartfon);</li>
               <li>
                 aktualna wersja przeglądarki internetowej obsługującej JavaScript i pliki
@@ -93,9 +107,9 @@ export default function PolitykaPrywatnosciPage() {
               zapewnienia pełnej funkcjonalności serwisu oraz bezpieczeństwa.
             </p>
 
-            <h3>Zasady Korzystania z Serwisu</h3>
+            <h3 className="font-bold mb-2 mt-2">Zasady Korzystania z Serwisu</h3>
             <p>Użytkownik zobowiązuje się do:</p>
-            <ul>
+            <ul className="mb-2 mt-2 list-disc list-inside">
               <li>korzystania z serwisu zgodnie z jego przeznaczeniem;</li>
               <li>niepodejmowania działań mogących zakłócić prawidłowe funkcjonowanie serwisu;</li>
               <li>
@@ -105,7 +119,7 @@ export default function PolitykaPrywatnosciPage() {
               <li>podawania prawdziwych danych w formularzach kontaktowych.</li>
             </ul>
 
-            <h3>Prawa Autorskie i Własność Intelektualna</h3>
+            <h3 className="font-bold mb-2 mt-2">Prawa Autorskie i Własność Intelektualna</h3>
             <p>
               Wszelkie treści zamieszczone w serwisie, w tym teksty, zdjęcia, grafiki, filmy
               oraz logo, stanowią własność Centrum Rozwoju Dziecka Polana Przygody KATARZYNA
@@ -114,12 +128,12 @@ export default function PolitykaPrywatnosciPage() {
               zabronione.
             </p>
 
-            <h3>Odpowiedzialność</h3>
+            <h3 className="font-bold mb-2 mt-2">Odpowiedzialność</h3>
             <p>
               Administrator dokłada wszelkich starań, aby informacje zawarte w serwisie były
               aktualne i prawidłowe. Nie ponosi jednak odpowiedzialności za:
             </p>
-            <ul>
+            <ul className="mb-2 mt-2 list-disc list-inside">
               <li>
                 czasową niedostępność serwisu wynikającą z awarii technicznych lub prac
                 konserwacyjnych;
@@ -134,7 +148,7 @@ export default function PolitykaPrywatnosciPage() {
               </li>
             </ul>
 
-            <h3>Reklamacje</h3>
+            <h3 className="font-bold mb-2 mt-2">Reklamacje</h3>
             <p>
               Reklamacje dotyczące funkcjonowania serwisu można składać drogą elektroniczną
               na adres{" "}
@@ -143,22 +157,27 @@ export default function PolitykaPrywatnosciPage() {
               rozpatrywane są w terminie 14 dni roboczych od daty ich otrzymania.
             </p>
 
-            <h2>Przetwarzanie Danych Osobowych</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">2</span>
+                Przetwarzanie Danych Osobowych
+              </h2>
+            </div>
 
-            <h3>Administrator Danych</h3>
+            <h3 className="font-bold mb-2 mt-2">Administrator Danych</h3>
             <p>
               Administratorem Twoich danych osobowych jest Centrum Rozwoju Dziecka Polana
               Przygody KATARZYNA KARWATKA, z siedzibą w Polsce, przy ul. Białowieskiej 69
               lok. B, 54-234 Wrocław, NIP: 6972218126, REGON: 542382447.
             </p>
 
-            <h3>Dane Osobowe</h3>
+            <h3 className="font-bold mb-2 mt-2">Dane Osobowe</h3>
             <p>
               Zbieramy i przetwarzamy Twoje dane WYŁĄCZNIE na Twoje żądanie, na podstawie
               prawnej Twojej zgody w następujących obszarach:
             </p>
 
-            <h4>Formularz kontaktowy</h4>
+            <h4 className="mb-2 mt-2">Formularz kontaktowy</h4>
             <p>
               Formularz kontaktowy jest podstawowym sposobem komunikacji z naszymi
               specjalistami. Możesz go znaleźć w różnych miejscach na stronie. Formularz
@@ -185,14 +204,19 @@ export default function PolitykaPrywatnosciPage() {
               wszystkie Twoje dane zostaną usunięte z naszej bazy danych.
             </p>
 
-            <h2>Realizacja Twoich Praw</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">3</span>
+                Realizacja Twoich Praw
+              </h2>
+            </div>
             <p>
               Zbieramy i przetwarzamy Twoje dane osobowe wyłącznie za Twoją zgodą. Twoje
               dane osobowe będą przechowywane w naszej bazie danych przez czas
               nieokreślony (chyba że uzgodniono inaczej). Przez cały ten czas masz prawo
               żądać od nas:
             </p>
-            <ul>
+            <ul className="mb-2 mt-2 list-disc list-inside">
               <li>dostępu do Twoich danych osobowych;</li>
               <li>sprostowania Twoich danych osobowych;</li>
               <li>usunięcia Twoich danych osobowych;</li>
@@ -225,9 +249,14 @@ export default function PolitykaPrywatnosciPage() {
               ).
             </p>
 
-            <h2>Ochrona Danych Osobowych</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">4</span>
+                Ochrona Danych Osobowych
+              </h2>
+            </div>
 
-            <h3>Przechowywanie Danych i Rozwiązania Techniczne</h3>
+            <h3 className="font-bold mb-2 mt-2">Przechowywanie Danych i Rozwiązania Techniczne</h3>
             <p>
               Aby zapewnić ochronę Twoich danych osobowych, stosujemy odpowiednie
               praktyki gromadzenia, przechowywania i przetwarzania danych oraz środki
@@ -241,7 +270,7 @@ export default function PolitykaPrywatnosciPage() {
               osób posiadających specjalne uprawnienia dostępu do tych systemów.
             </p>
 
-            <h3>Oprogramowanie Stron Trzecich</h3>
+            <h3 className="font-bold mb-2 mt-2">Oprogramowanie Stron Trzecich</h3>
             <p>
               Okazjonalnie współpracujemy z podmiotami trzecimi, które wspierają nas w
               świadczeniu usług: technologie śledzenia Google Analytics, narzędzia
@@ -252,7 +281,7 @@ export default function PolitykaPrywatnosciPage() {
               dostęp, tylko do tego, co jest niezbędne do wykonania zleconych zadań.
             </p>
 
-            <h3>Osadzenia Stron Trzecich</h3>
+            <h3 className="font-bold mb-2 mt-2">Osadzenia Stron Trzecich</h3>
             <p>
               W naszych treściach możesz znaleźć osadzenia stron trzecich: posty z
               Instagrama, filmy z YouTube, mapy Google Maps lub funkcje udostępniania w
@@ -262,7 +291,12 @@ export default function PolitykaPrywatnosciPage() {
               osadzenia stron trzecich są objęte polityką prywatności danej usługi.
             </p>
 
-            <h2>Pliki Cookies i Znaczniki Pikselowe</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">5</span>
+                Pliki Cookies i Znaczniki Pikselowe
+              </h2>
+            </div>
             <p>
               Używamy różnych metod śledzenia, takich jak pliki cookies, znaczniki
               pikselowe i inne technologie, aby otrzymywać informacje, które mogą
@@ -291,15 +325,15 @@ export default function PolitykaPrywatnosciPage() {
               osobowymi przesyłanymi przez Ciebie na naszej stronie.
             </p>
 
-            <h3>Jak i dlaczego ich używamy?</h3>
+            <h3 className="font-bold mb-2 mt-2">Jak i dlaczego ich używamy?</h3>
 
-            <h4>1. W celu korzystania ze strony (niezbędne)</h4>
+            <h4 className="mb-2 mt-2">1. W celu korzystania ze strony (niezbędne)</h4>
             <p>
               Te pliki cookies, znaczniki pikselowe i inne technologie są niezbędne, aby
               umożliwić stronie internetowej świadczenie żądanych funkcji.
             </p>
 
-            <h4>2. W celu funkcjonalności</h4>
+            <h4 className="mb-2 mt-2">2. W celu funkcjonalności</h4>
             <p>
               Te pliki cookies, znaczniki pikselowe i inne technologie zapamiętują
               korzystanie z naszej strony internetowej. Używamy tych plików cookies, aby
@@ -307,7 +341,7 @@ export default function PolitykaPrywatnosciPage() {
               usług bardziej dostosowanym.
             </p>
 
-            <h4>3. W celu analityki</h4>
+            <h4 className="mb-2 mt-2">3. W celu analityki</h4>
             <p>
               Te pliki cookies, znaczniki pikselowe i inne technologie zbierają
               informacje o sposobie interakcji z naszą stroną internetową. Używamy plików
@@ -317,7 +351,7 @@ export default function PolitykaPrywatnosciPage() {
               marketingowe.
             </p>
 
-            <h4>4. W celu reklamy i retargetingu</h4>
+            <h4 className="mb-2 mt-2">4. W celu reklamy i retargetingu</h4>
             <p>
               Te pliki cookies, znaczniki pikselowe i inne technologie zbierają
               informacje o Twoich nawykach przeglądania, aby reklamy były odpowiednie dla
@@ -326,7 +360,7 @@ export default function PolitykaPrywatnosciPage() {
               technologii reklamowych i reklamodawcy.
             </p>
 
-            <h4>5. W celu udostępniania w mediach społecznościowych</h4>
+            <h4 className="mb-2 mt-2">5. W celu udostępniania w mediach społecznościowych</h4>
             <p>
               Te pliki cookies, znaczniki pikselowe i inne technologie są używane, gdy
               udostępniasz informacje za pomocą przycisku udostępniania w mediach
@@ -334,13 +368,13 @@ export default function PolitykaPrywatnosciPage() {
               informacje mogą być powiązane z działaniami targetowania/reklamy.
             </p>
 
-            <h3>Jak zarządzać plikami cookies?</h3>
+            <h3 className="font-bold mb-2 mt-2">Jak zarządzać plikami cookies?</h3>
             <p>
               Możesz dezaktywować pliki cookies poprzez funkcję wbudowaną w Twoją
               przeglądarkę internetową. Producenci przeglądarek udostępniają strony
               pomocy dotyczące zarządzania plikami cookies w swoich produktach:
             </p>
-            <ul>
+            <ul className="mb-2 mt-2 list-disc list-inside">
               <li>Google Chrome</li>
               <li>Mozilla Firefox</li>
               <li>Microsoft Edge</li>
@@ -353,7 +387,12 @@ export default function PolitykaPrywatnosciPage() {
               „ściśle niezbędne" dla usług.
             </p>
 
-            <h2>Zmiany Polityki Prywatności</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">6</span>
+                Zmiany Polityki Prywatności
+              </h2>
+            </div>
             <p>
               Możemy okresowo aktualizować naszą Politykę Prywatności. Poinformujemy Cię
               o najważniejszych zmianach, ale niektóre zmiany będą wprowadzane bez
@@ -363,13 +402,23 @@ export default function PolitykaPrywatnosciPage() {
               przeglądania tej Polityki Prywatności.
             </p>
 
-            <h2>Prawo Właściwe</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">7</span>
+                Prawo Właściwe
+              </h2>
+            </div>
             <p>
               Wszelkie roszczenia związane z naszą Polityką Prywatności podlegają prawu
               Rzeczypospolitej Polskiej.
             </p>
 
-            <h2>Pytania i Kontakt</h2>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">8</span>
+                Pytania i Kontakt
+              </h2>
+            </div>
             <p>
               Skontaktuj się z nami w przypadku jakichkolwiek pytań dotyczących
               przetwarzania danych osobowych lub korzystania z plików cookies /
@@ -386,7 +435,7 @@ export default function PolitykaPrywatnosciPage() {
                 <a href="mailto:info@polanaprzygody.pl">info@polanaprzygody.pl</a>
               </p>
               <p className="m-0">Tel: +48 790 512 258</p>
-              <p className="m-0 mt-4 text-sm text-polana-dark-green/60">
+              <p className="m-0 mt-4 text-polana-dark-green/60">
                 Ostatnia aktualizacja: grudzień 2025
               </p>
             </div>
