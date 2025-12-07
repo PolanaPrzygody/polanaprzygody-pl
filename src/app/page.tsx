@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <>
       {/* Hero Section with Video */}
-      <section className="relative min-h-[200vh] md:min-h-screen bg-polana-dark-green">
+      <section className="relative min-h-screen bg-polana-dark-green">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-0 w-96 h-96 bg-polana-lime/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-polana-olive/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-20">
+        <div className="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 lg:gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:py-20">
           {/* Left side - Logo and Content */}
           <div className="flex-1 text-center md:text-left order-2 md:order-1">
             <motion.div
@@ -28,10 +28,10 @@ export default function Home() {
                 alt="Polana Przygody"
                 width={400}
                 height={191}
-                className="w-64 md:w-80 lg:w-[400px] h-auto mx-auto md:mx-0 mb-6"
+                className="w-48 sm:w-64 md:w-80 lg:w-[400px] h-auto mx-auto md:mx-0 mb-3 md:mb-6"
                 priority
               />
-              <p className="text-xl md:text-2xl text-polana-olive font-light mb-4">
+              <p className="text-lg md:text-2xl text-polana-olive font-light mb-3 md:mb-4">
                 Centrum Rozwoju Dziecka
               </p>
             </motion.div>
@@ -40,7 +40,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-polana-straw/80 max-w-xl mb-10 leading-relaxed"
+              className="text-base md:text-xl text-polana-straw/80 max-w-xl mb-6 md:mb-10 leading-relaxed"
             >
               Wspieramy rozwój Twojego dziecka w przyjaznej, pełnej przygód atmosferze.
               Profesjonalna logopedia i terapia integracji sensorycznej.
@@ -50,7 +50,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center"
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start items-center"
             >
               <Button href="/umow-sie" variant="primary" size="lg">
                 Umów wizytę
@@ -68,7 +68,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.3 }}
             className="flex-shrink-0 order-1 md:order-2"
           >
-            <div className="relative w-[280px] sm:w-[320px] md:w-[300px] lg:w-[360px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-black/30 ring-4 ring-polana-lime/20">
+            <div className="relative w-[200px] sm:w-[260px] md:w-[300px] lg:w-[360px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-black/30 ring-4 ring-polana-lime/20">
               <video
                 autoPlay
                 loop
@@ -89,7 +89,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+          className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20"
         >
           <div className="flex flex-col items-center gap-2 text-polana-straw/50">
             <span className="text-sm">Przewiń</span>
