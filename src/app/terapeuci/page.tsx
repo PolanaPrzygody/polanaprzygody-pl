@@ -15,7 +15,7 @@ const therapists = [
     specializations: [
       "Terapia wad wymowy",
       "Opóźniony rozwój mowy",
-      "Neurologopedia dziecięca",
+      "Wieloletnie doświadczenie pedagogiczne",
     ],
     description:
       "Założycielka Polany Przygody. Logopeda z pasją, która wierzy, że każde dziecko ma swój niepowtarzalny sposób komunikacji. Specjalizuje się w pracy z dziećmi z zaburzeniami mowy i komunikacji.",
