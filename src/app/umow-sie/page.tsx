@@ -390,12 +390,12 @@ export default function UmowSiePage() {
 
                 <div className="space-y-3">
                   {[
-                    { day: "Poniedziałek", hours: "9:00 - 18:00" },
-                    { day: "Wtorek", hours: "9:00 - 18:00" },
-                    { day: "Środa", hours: "9:00 - 18:00" },
-                    { day: "Czwartek", hours: "9:00 - 18:00" },
-                    { day: "Piątek", hours: "9:00 - 16:00" },
-                    { day: "Sobota", hours: "Zamknięte" },
+                    { day: "Poniedziałek", hours: "9:00 - 20:00" },
+                    { day: "Wtorek", hours: "9:00 - 20:00" },
+                    { day: "Środa", hours: "9:00 - 20:00" },
+                    { day: "Czwartek", hours: "9:00 - 20:00" },
+                    { day: "Piątek", hours: "9:00 - 20:00" },
+                    { day: "Sobota", hours: "10:00 - 14:00" },
                     { day: "Niedziela", hours: "Zamknięte" },
                   ].map((item) => (
                     <div
