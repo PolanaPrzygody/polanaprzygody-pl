@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   {
@@ -11,6 +12,10 @@ const services = [
     title: "Logopedia",
     description:
       "Profesjonalna diagnoza i terapia zaburzeń mowy. Pomagamy dzieciom w prawidłowym rozwoju komunikacji.",
+    image: "/images/gabinety/gabinet-logopedy-1.png",
+    imageAlt: "Gabinet logopedyczny w Polanie Przygody",
+    video: "/terapia-logopedyczna.mp4",
+    videoTitle: "Jak wygląda terapia logopedyczna?",
     icon: (
       <path
         strokeLinecap="round"
@@ -40,6 +45,10 @@ const services = [
     title: "Terapia Integracji Sensorycznej",
     description:
       "Wspieramy prawidłowy rozwój zmysłów i koordynacji. Pomagamy dzieciom w lepszym odbieraniu świata.",
+    image: "/images/gabinety/sala-si.png",
+    imageAlt: "Sala integracji sensorycznej z huśtawkami i sprzętem terapeutycznym",
+    video: "/co-to-jest-integracja.mp4",
+    videoTitle: "Co to jest integracja sensoryczna?",
     icon: (
       <path
         strokeLinecap="round"
@@ -69,6 +78,10 @@ const services = [
     title: "Konsultacje dla rodziców",
     description:
       "Wspieramy rodziców w codziennej pracy z dzieckiem. Razem tworzymy plan rozwoju.",
+    image: "/images/gabinety/gabinet-psychologa.png",
+    imageAlt: "Gabinet konsultacyjny - spokojne miejsce do rozmów",
+    video: null,
+    videoTitle: null,
     icon: (
       <path
         strokeLinecap="round"
@@ -115,7 +128,7 @@ export default function UslugiPage() {
             łączy skuteczność z zabawą.
           </motion.p>
 
-          <div className="space-y-16">
+          <div className="space-y-20">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -127,14 +140,22 @@ export default function UslugiPage() {
                 className="scroll-mt-24"
               >
                 <div className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-polana-dark-green/5">
-                  <div className="grid md:grid-cols-2 gap-0">
-                    {/* Left side - info */}
-                    <div className="p-8 md:p-12">
+                  {/* Image banner */}
+                  <div className="relative h-64 md:h-80 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1280px) 100vw, 1280px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-8 md:left-12">
                       <div
-                        className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mb-6`}
+                        className={`w-14 h-14 ${service.color} backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3`}
                       >
                         <svg
-                          className="w-8 h-8 text-polana-dark-green"
+                          className="w-7 h-7 text-polana-dark-green"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -142,70 +163,91 @@ export default function UslugiPage() {
                           {service.icon}
                         </svg>
                       </div>
-
-                      <h2 className="text-2xl md:text-3xl font-semibold text-polana-dark-green mb-4">
+                      <h2 className="text-2xl md:text-3xl font-semibold text-white drop-shadow-lg">
                         {service.title}
                       </h2>
+                    </div>
+                  </div>
 
+                  <div className={`grid ${service.video ? "lg:grid-cols-3" : "md:grid-cols-2"} gap-0`}>
+                    {/* Left side - info */}
+                    <div className="p-8 md:p-12">
                       <p className="text-lg text-polana-dark-green/70 mb-8">
                         {service.description}
                       </p>
+
+                      <div className="mb-8">
+                        <h3 className="text-lg font-semibold text-polana-dark-green mb-4">
+                          Co oferujemy?
+                        </h3>
+                        <ul className="space-y-2">
+                          {service.features.map((feature) => (
+                            <li
+                              key={feature}
+                              className="flex items-start gap-2 text-polana-dark-green/80"
+                            >
+                              <svg
+                                className="w-5 h-5 text-polana-lime flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
                       <Button href="/umow-sie" variant="primary">
                         Umów wizytę
                       </Button>
                     </div>
 
-                    {/* Right side - details */}
+                    {/* Middle - for whom */}
                     <div className={`${service.color} p-8 md:p-12`}>
-                      <div className="space-y-8">
-                        <div>
-                          <h3 className="text-lg font-semibold text-polana-dark-green mb-4">
-                            Co oferujemy?
-                          </h3>
-                          <ul className="space-y-2">
-                            {service.features.map((feature) => (
-                              <li
-                                key={feature}
-                                className="flex items-start gap-2 text-polana-dark-green/80"
-                              >
-                                <svg
-                                  className="w-5 h-5 text-polana-dark-green flex-shrink-0 mt-0.5"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M5 13l4 4L19 7"
-                                  />
-                                </svg>
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                      <h3 className="text-lg font-semibold text-polana-dark-green mb-4">
+                        Dla kogo?
+                      </h3>
+                      <ul className="space-y-3">
+                        {service.forWhom.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-3 text-polana-dark-green/80"
+                          >
+                            <span className="w-2 h-2 bg-polana-dark-green/40 rounded-full mt-2 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                        <div>
-                          <h3 className="text-lg font-semibold text-polana-dark-green mb-4">
-                            Dla kogo?
-                          </h3>
-                          <ul className="space-y-2">
-                            {service.forWhom.map((item) => (
-                              <li
-                                key={item}
-                                className="flex items-start gap-2 text-polana-dark-green/80"
-                              >
-                                <span className="text-polana-dark-green">•</span>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
+                    {/* Right side - video (if available) */}
+                    {service.video && (
+                      <div className="bg-polana-dark-green p-8 md:p-12 flex flex-col">
+                        <h3 className="text-lg font-semibold text-polana-lime mb-4">
+                          {service.videoTitle}
+                        </h3>
+                        <div className="flex-1 flex items-center justify-center">
+                          <div className="relative w-full max-w-[200px] aspect-[9/16] rounded-2xl overflow-hidden shadow-lg">
+                            <video
+                              controls
+                              playsInline
+                              poster={service.image}
+                              className="absolute inset-0 w-full h-full object-cover"
+                            >
+                              <source src={service.video} type="video/mp4" />
+                            </video>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,13 +22,15 @@ export function Navigation() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col leading-tight group">
-            <span className="text-polana-lime text-xl md:text-2xl font-semibold tracking-tight group-hover:text-polana-straw transition-colors">
-              Polana Przygody
-            </span>
-            <span className="text-polana-olive text-xs md:text-sm font-light tracking-wide">
-              Centrum Rozwoju Dziecka
-            </span>
+          <Link href="/" className="block hover:opacity-80 transition-opacity">
+            <Image
+              src="/logo-polana.svg"
+              alt="Polana Przygody - Centrum Rozwoju Dziecka"
+              width={140}
+              height={67}
+              className="h-10 md:h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

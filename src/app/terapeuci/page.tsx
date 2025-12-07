@@ -3,7 +3,7 @@
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Image from "next/image";
 
 const therapists = [
   {
@@ -11,6 +11,7 @@ const therapists = [
     name: "Katarzyna Karwatka",
     role: "Założycielka, Logopeda",
     experience: "12 lat doświadczenia",
+    photo: "/images/terapeuci/kasia.jpeg",
     specializations: [
       "Terapia wad wymowy",
       "Opóźniony rozwój mowy",
@@ -26,6 +27,7 @@ const therapists = [
     name: "Weronika Saczewska",
     role: "Terapeuta Integracji Sensorycznej",
     experience: "Certyfikowany terapeuta SI",
+    photo: "/images/terapeuci/weronika.jpg",
     specializations: [
       "Diagnoza i terapia SI",
       "Trudności w koncentracji",
@@ -41,6 +43,7 @@ const therapists = [
     name: "Magdalena Wawrzycka",
     role: "Logopeda",
     experience: "14 lat doświadczenia",
+    photo: "/images/terapeuci/magda.jpeg",
     specializations: [
       "Terapia jąkania",
       "Praca z dziećmi słabosłyszącymi",
@@ -97,32 +100,19 @@ export default function TerapeuciPage() {
                       index % 2 === 1 ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    {/* Photo placeholder */}
+                    {/* Photo */}
                     <div
-                      className={`relative aspect-square md:aspect-auto bg-gradient-to-br from-polana-olive/40 to-polana-dark-green/20 ${
+                      className={`relative aspect-square md:aspect-auto min-h-[300px] md:min-h-[400px] ${
                         index % 2 === 1 ? "md:order-2" : ""
                       }`}
                     >
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center p-8">
-                          <div className="w-32 h-32 mx-auto rounded-full bg-polana-dark-green/20 flex items-center justify-center mb-4">
-                            <svg
-                              className="w-16 h-16 text-polana-dark-green/40"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                            </svg>
-                          </div>
-                          <p className="text-sm text-polana-dark-green/50">
-                            Zdjęcie terapeuty
-                            <br />
-                            <span className="text-xs">
-                              Dodaj do /public/images/terapeuci/
-                            </span>
-                          </p>
-                        </div>
-                      </div>
+                      <Image
+                        src={therapist.photo}
+                        alt={therapist.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                     </div>
 
                     {/* Content */}

@@ -1,88 +1,172 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/Button";
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-polana-dark-green">
+      {/* Hero Section with Video */}
+      <section className="relative min-h-[200vh] md:min-h-screen bg-polana-dark-green">
         {/* Background decorations */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-polana-lime/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-polana-olive/20 rounded-full blur-3xl animate-float delay-300" />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-polana-violet/10 rounded-full blur-2xl animate-float delay-500" />
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-0 w-96 h-96 bg-polana-lime/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-polana-olive/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-polana-lime mb-6 tracking-tight">
-              Polana Przygody
-            </h1>
-            <p className="text-xl md:text-2xl text-polana-olive font-light mb-4">
-              Centrum Rozwoju Dziecka
-            </p>
-          </motion.div>
+        <div className="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-20">
+          {/* Left side - Logo and Content */}
+          <div className="flex-1 text-center md:text-left order-2 md:order-1">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Image
+                src="/logo-polana.svg"
+                alt="Polana Przygody"
+                width={400}
+                height={191}
+                className="w-64 md:w-80 lg:w-[400px] h-auto mx-auto md:mx-0 mb-6"
+                priority
+              />
+              <p className="text-xl md:text-2xl text-polana-olive font-light mb-4">
+                Centrum Rozwoju Dziecka
+              </p>
+            </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-polana-straw/80 max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            Wspieramy rozwój Twojego dziecka w przyjaznej, pełnej przygód atmosferze.
-            Profesjonalna logopedia i terapia integracji sensorycznej.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-xl text-polana-straw/80 max-w-xl mb-10 leading-relaxed"
+            >
+              Wspieramy rozwój Twojego dziecka w przyjaznej, pełnej przygód atmosferze.
+              Profesjonalna logopedia i terapia integracji sensorycznej.
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Button href="/umow-sie" variant="primary" size="lg">
-              Umów wizytę
-            </Button>
-            <Button href="/poznaj-nas" variant="outline" size="lg" className="border-polana-straw text-polana-straw hover:bg-polana-straw hover:text-polana-dark-green">
-              Poznaj nas
-            </Button>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center"
+            >
+              <Button href="/umow-sie" variant="primary" size="lg">
+                Umów wizytę
+              </Button>
+              <Button href="/poznaj-nas" variant="outline" size="lg" className="border-polana-straw text-polana-straw hover:bg-polana-straw hover:text-polana-dark-green">
+                Poznaj nas
+              </Button>
+            </motion.div>
+          </div>
 
-          {/* Scroll indicator */}
+          {/* Right side - Vertical Video */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex-shrink-0 order-1 md:order-2"
           >
-            <div className="flex flex-col items-center gap-2 text-polana-straw/50">
-              <span className="text-sm">Przewiń</span>
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+            <div className="relative w-[280px] sm:w-[320px] md:w-[300px] lg:w-[360px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-black/30 ring-4 ring-polana-lime/20">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                  />
-                </svg>
-              </motion.div>
+                <source src="/polana-intro.mp4" type="video/mp4" />
+              </video>
+              {/* Subtle overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/30 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        >
+          <div className="flex flex-col items-center gap-2 text-polana-straw/50">
+            <span className="text-sm">Przewiń</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* What to Expect Video Section */}
+      <section className="py-16 md:py-24 bg-polana-straw">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-semibold text-polana-dark-green mb-6">
+                Czego możesz się spodziewać?
+              </h2>
+              <p className="text-lg text-polana-dark-green/70 mb-6 leading-relaxed">
+                Zanim przyjdziesz na pierwszą wizytę, zobacz jak wygląda nasz dzień
+                w Polanie Przygody. Przygotowaliśmy krótki film, który pomoże
+                Twojemu dziecku oswoić się z nowym miejscem.
+              </p>
+              <ul className="space-y-3 text-polana-dark-green/80">
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-polana-lime rounded-full" />
+                  Przyjazna atmosfera od pierwszych chwil
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-polana-lime rounded-full" />
+                  Kolorowe, bezpieczne przestrzenie
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-polana-lime rounded-full" />
+                  Terapia przez zabawę i przygodę
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="relative aspect-[9/16] max-w-[320px] mx-auto rounded-2xl overflow-hidden shadow-xl">
+                <video
+                  controls
+                  playsInline
+                  poster="/images/gabinety/poczekalnia.png"
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/czego-mozesz-sie-spodziewac.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -212,16 +296,19 @@ export default function Home() {
                 name: "Katarzyna Karwatka",
                 role: "Założycielka, Logopeda",
                 experience: "12 lat doświadczenia",
+                photo: "/images/terapeuci/kasia.jpeg",
               },
               {
                 name: "Weronika Saczewska",
                 role: "Terapeuta SI",
                 experience: "Specjalista integracji sensorycznej",
+                photo: "/images/terapeuci/weronika.jpg",
               },
               {
                 name: "Magdalena Wawrzycka",
                 role: "Logopeda",
                 experience: "14 lat doświadczenia",
+                photo: "/images/terapeuci/magda.jpeg",
               },
             ].map((member, index) => (
               <motion.div
@@ -233,18 +320,13 @@ export default function Home() {
                 className="group"
               >
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-polana-dark-green/10">
-                  {/* Placeholder for therapist photo */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-polana-dark-green/20 flex items-center justify-center">
-                      <svg
-                        className="w-12 h-12 text-polana-dark-green/40"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                      </svg>
-                    </div>
-                  </div>
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <h3 className="text-xl font-semibold text-polana-dark-green">

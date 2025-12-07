@@ -37,30 +37,16 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
             onClick={() => setSelectedImage(image)}
             className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer focus:outline-none focus:ring-2 focus:ring-polana-lime focus:ring-offset-2"
           >
-            {/* Placeholder - replace with actual images */}
-            <div className="absolute inset-0 bg-gradient-to-br from-polana-olive/40 to-polana-dark-green/20">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-4">
-                  <svg
-                    className="w-12 h-12 mx-auto text-polana-dark-green/30 mb-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span className="text-sm text-polana-dark-green/50">{image.alt}</span>
-                </div>
-              </div>
-            </div>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
 
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-polana-dark-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="absolute inset-0 bg-polana-dark-green/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <svg
                 className="w-8 h-8 text-polana-lime"
                 fill="none"
@@ -78,8 +64,8 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
 
             {/* Caption */}
             {image.caption && (
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-polana-dark-green/80 to-transparent">
-                <p className="text-sm text-polana-straw">{image.caption}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-polana-dark-green/90 via-polana-dark-green/60 to-transparent">
+                <p className="text-sm text-polana-straw font-medium">{image.caption}</p>
               </div>
             )}
           </motion.button>
@@ -115,28 +101,20 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
             className="relative max-w-4xl max-h-[80vh] w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Placeholder for actual image */}
-            <div className="aspect-video bg-polana-olive/30 rounded-xl flex items-center justify-center">
-              <div className="text-center p-8">
-                <svg
-                  className="w-16 h-16 mx-auto text-polana-dark-green/40 mb-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <p className="text-polana-straw text-lg">{selectedImage.alt}</p>
-                {selectedImage.caption && (
-                  <p className="text-polana-straw/70 mt-2">{selectedImage.caption}</p>
-                )}
-              </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 80vw"
+              />
             </div>
+            {selectedImage.caption && (
+              <p className="text-polana-straw text-center mt-4 text-lg">
+                {selectedImage.caption}
+              </p>
+            )}
           </motion.div>
         </motion.div>
       )}

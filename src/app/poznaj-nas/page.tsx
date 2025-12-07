@@ -5,15 +5,39 @@ import { Card } from "@/components/Card";
 import { InstagramFeed } from "@/components/InstagramFeed";
 import { ImageGallery } from "@/components/ImageGallery";
 import { motion } from "framer-motion";
+import Script from "next/script";
 
-// Sample gallery images - replace with actual images
 const spaceImages = [
-  { src: "/images/space-1.jpg", alt: "Poczekalnia", caption: "Przytulna poczekalnia" },
-  { src: "/images/space-2.jpg", alt: "Gabinet logopedyczny", caption: "Gabinet logopedyczny" },
-  { src: "/images/space-3.jpg", alt: "Sala SI", caption: "Sala integracji sensorycznej" },
-  { src: "/images/space-4.jpg", alt: "Kącik zabaw", caption: "Kącik zabaw" },
-  { src: "/images/space-5.jpg", alt: "Materiały dydaktyczne", caption: "Materiały dydaktyczne" },
-  { src: "/images/space-6.jpg", alt: "Wejście", caption: "Wejście do Polany" },
+  {
+    src: "/images/gabinety/poczekalnia.png",
+    alt: "Poczekalnia",
+    caption: "Przytulna poczekalnia – miejsce, gdzie zaczyna się przygoda",
+  },
+  {
+    src: "/images/gabinety/gabinet-logopedy-1.png",
+    alt: "Gabinet logopedyczny",
+    caption: "Gabinet logopedyczny – przestrzeń do ćwiczeń mowy",
+  },
+  {
+    src: "/images/gabinety/gabinet-logopedy-2.png",
+    alt: "Gabinet logopedyczny z pomocami",
+    caption: "Kolorowe pomoce dydaktyczne wspierające terapię",
+  },
+  {
+    src: "/images/gabinety/gabinet-logopedy-3.png",
+    alt: "Kącik do ćwiczeń",
+    caption: "Kącik do indywidualnej pracy z dzieckiem",
+  },
+  {
+    src: "/images/gabinety/sala-si.png",
+    alt: "Sala integracji sensorycznej",
+    caption: "Sala SI – tu każda zabawa ma głębszy sens",
+  },
+  {
+    src: "/images/gabinety/gabinet-psychologa.png",
+    alt: "Gabinet psychologa",
+    caption: "Spokojne miejsce do rozmów i konsultacji",
+  },
 ];
 
 export default function PoznajNasPage() {
@@ -135,15 +159,6 @@ export default function PoznajNasPage() {
           </motion.div>
 
           <ImageGallery images={spaceImages} columns={3} />
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-8 text-sm text-polana-dark-green/60 bg-polana-olive/20 rounded-lg py-3 px-4 inline-block mx-auto"
-          >
-            📸 Dodaj zdjęcia przestrzeni do folderu /public/images/
-          </motion.p>
         </div>
       </section>
 
@@ -196,28 +211,16 @@ export default function PoznajNasPage() {
                 Zielona część Wrocławia z łatwym dojazdem i parkingiem dla rodziców
               </p>
 
-              {/* Map placeholder */}
-              <div className="aspect-video bg-polana-olive/20 rounded-xl flex items-center justify-center">
-                <div className="text-center p-4">
-                  <svg
-                    className="w-12 h-12 mx-auto text-polana-dark-green/30 mb-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                    />
-                  </svg>
-                  <p className="text-sm text-polana-dark-green/50">
-                    Mapa Google Maps
-                    <br />
-                    <span className="text-xs">(Osadź iframe z Google Maps)</span>
-                  </p>
-                </div>
+              {/* Google Maps Widget */}
+              <div className="rounded-xl overflow-hidden">
+                <div
+                  className="elfsight-app-33bbebe4-56b7-4e95-a500-faf14de051ac"
+                  data-elfsight-app-lazy
+                />
+                <Script
+                  src="https://static.elfsight.com/platform/platform.js"
+                  strategy="lazyOnload"
+                />
               </div>
             </div>
           </motion.div>
