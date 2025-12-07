@@ -4,12 +4,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
 interface FormData {
   name: string;
   email: string;
   phone: string;
   message: string;
+  acceptedTerms: boolean;
 }
 
 interface FormStatus {
@@ -23,6 +25,7 @@ export default function UmowSiePage() {
     email: "",
     phone: "",
     message: "",
+    acceptedTerms: false,
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: "idle" });
@@ -30,8 +33,9 @@ export default function UmowSiePage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    const newValue = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+    setFormData((prev) => ({ ...prev, [name]: newValue }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,7 +58,7 @@ export default function UmowSiePage() {
           type: "success",
           message: "Dziękujemy! Wiadomość została wysłana. Odezwiemy się wkrótce.",
         });
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", message: "", acceptedTerms: false });
       } else {
         setStatus({
           type: "error",
@@ -206,6 +210,33 @@ export default function UmowSiePage() {
                       />
                     </div>
 
+                    {/* Terms acceptance */}
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        id="acceptedTerms"
+                        name="acceptedTerms"
+                        checked={formData.acceptedTerms}
+                        onChange={handleChange}
+                        required
+                        className="mt-1 w-4 h-4 text-polana-lime bg-white border-polana-olive/30 rounded focus:ring-polana-lime focus:ring-2 cursor-pointer"
+                      />
+                      <label
+                        htmlFor="acceptedTerms"
+                        className="text-sm text-polana-dark-green/70 cursor-pointer"
+                      >
+                        Akceptuję{" "}
+                        <Link
+                          href="/polityka-prywatnosci"
+                          className="text-polana-dark-green underline hover:text-polana-lime transition-colors"
+                          target="_blank"
+                        >
+                          Politykę prywatności i regulamin serwisu
+                        </Link>{" "}
+                        oraz wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie. *
+                      </label>
+                    </div>
+
                     {/* Error message */}
                     {status.type === "error" && (
                       <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
@@ -219,7 +250,7 @@ export default function UmowSiePage() {
                       variant="primary"
                       size="lg"
                       className="w-full"
-                      disabled={status.type === "loading"}
+                      disabled={status.type === "loading" || !formData.acceptedTerms}
                     >
                       {status.type === "loading" ? (
                         <span className="flex items-center gap-2">
@@ -248,11 +279,6 @@ export default function UmowSiePage() {
                         "Wyślij wiadomość"
                       )}
                     </Button>
-
-                    <p className="text-xs text-polana-dark-green/50 text-center">
-                      Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych
-                      osobowych w celu odpowiedzi na zapytanie.
-                    </p>
                   </form>
                 )}
               </div>

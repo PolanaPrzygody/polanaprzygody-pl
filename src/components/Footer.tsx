@@ -161,7 +161,13 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-polana-olive/20 text-center text-sm text-polana-straw/50">
-          <p>© {new Date().getFullYear()} Polana Przygody. Wszystkie prawa zastrzeżone.</p>
+          <p className="mb-2">© {new Date().getFullYear()} Polana Przygody. Wszystkie prawa zastrzeżone.</p>
+          <Link
+            href="/polityka-prywatnosci"
+            className="hover:text-polana-lime transition-colors"
+          >
+            Polityka prywatności i regulamin serwisu
+          </Link>
         </div>
       </div>
     </footer>
