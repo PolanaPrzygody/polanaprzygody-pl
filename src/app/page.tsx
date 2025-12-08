@@ -293,7 +293,7 @@ export default function Home() {
               {
                 name: "Katarzyna Karwatka",
                 role: "Założycielka, Logopeda",
-                experience: "12 lat doświadczenia",
+                experience: "Logopeda od 12 lat",
                 photo: "/images/terapeuci/kasia.jpeg",
               },
               {
