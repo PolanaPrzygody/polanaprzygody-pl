@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import Script from "next/script";
 
 interface FormData {
   name: string;
@@ -469,34 +470,16 @@ export default function UmowSiePage() {
             </p>
           </motion.div>
 
-          {/* Map placeholder */}
-          <div className="aspect-[16/9] md:aspect-[21/9] bg-white rounded-3xl overflow-hidden shadow-xl shadow-polana-dark-green/5">
-            <div className="w-full h-full flex items-center justify-center bg-polana-olive/20">
-              <div className="text-center p-8">
-                <svg
-                  className="w-16 h-16 mx-auto text-polana-dark-green/30 mb-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-                <p className="text-polana-dark-green/50">
-                  Mapa Google Maps
-                  <br />
-                  <span className="text-sm">
-                    Osadź iframe z Google Maps używając adresu:
-                    <br />
-                    ul. Białowieska 69B, 54-234 Wrocław
-                  </span>
-                </p>
-              </div>
-            </div>
+          {/* Google Maps Widget */}
+          <div className="rounded-xl overflow-hidden">
+            <div
+              className="elfsight-app-33bbebe4-56b7-4e95-a500-faf14de051ac"
+              data-elfsight-app-lazy
+            />
+            <Script
+              src="https://static.elfsight.com/platform/platform.js"
+              strategy="lazyOnload"
+            />
           </div>
         </div>
       </section>

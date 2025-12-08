@@ -2,8 +2,9 @@
 
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/Button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const therapists = [
   {
@@ -13,14 +14,20 @@ const therapists = [
     experience: "12 lat doświadczenia",
     photo: "/images/terapeuci/kasia.jpeg",
     specializations: [
-      "Terapia wad wymowy",
+      "Dyslalia",
+      "Dyspraksja",
       "Opóźniony rozwój mowy",
-      "Wieloletnie doświadczenie pedagogiczne",
+      "Afazja",
+      "Autyzm",
+      "Mutyzm wybiórczy",
+      "Muzykoterapia w logopedii",
     ],
-    description:
-      "Założycielka Polany Przygody. Logopeda z pasją, która wierzy, że każde dziecko ma swój niepowtarzalny sposób komunikacji. Specjalizuje się w pracy z dziećmi z zaburzeniami mowy i komunikacji.",
+    shortDescription:
+      "Logopeda od 12 lat. W mojej pracy najważniejszy jest indywidualny plan pracy, bo każde dziecko ma inne potrzeby.",
+    fullDescription:
+      "Ukończyłam studia na Uniwersytecie Wrocławskim, 12 lat temu. Doświadczenie zdobywałam pracując w przedszkolach, mając pod swoją opieką 250 dzieci co roku.\n\nTaka duża ilość dzieci przez wiele lat pokazała mi zróżnicowanie potrzeb i pomogła dokształcać się w wielu dziedzinach. Od dyslalii, dyspraksji, opóźnionego rozwoju mowy, afazji, autyzmu, mutyzmu wybiórczego i wiele innych wyzwań które pomogło mi się rozwinąć a przede wszystkim pomogło dzieciom.\n\nUkończone mam również studia z edukacji muzycznej, elementy muzykoterapii w terapii logopedycznej pięknie wspomagają rozwój mowy.\n\nPrywatnie mama dwójki dzieci ❤️",
     quote:
-      "Terapia nie musi być nudna – może być fascynującą przygodą!",
+      "W mojej pracy najważniejszy jest indywidualny plan pracy, bo każde dziecko ma inne potrzeby.",
   },
   {
     id: "weronika-saczewska",
@@ -33,10 +40,10 @@ const therapists = [
       "Trudności w koncentracji",
       "Koordynacja ruchowa",
     ],
-    description:
+    shortDescription:
       "Certyfikowany terapeuta integracji sensorycznej, która zamienia terapię w przygodę. W jej sali huśtamy się jak piraci, skaczemy jak kangury i wspinamy się jak alpiniści.",
-    quote:
-      "Terapia SI to dla mnie zabawa z sensem!",
+    fullDescription: null,
+    quote: "Terapia SI to dla mnie zabawa z sensem!",
   },
   {
     id: "magdalena-wawrzycka",
@@ -49,12 +56,151 @@ const therapists = [
       "Praca z dziećmi słabosłyszącymi",
       "Metody komunikacji AAC",
     ],
-    description:
+    shortDescription:
       "Logopeda z 14-letnim stażem, która przez te lata pomogła setkom dzieci w odkrywaniu radości z komunikacji. Specjalizuje się w terapii jąkania i alternatywnych metodach komunikacji.",
-    quote:
-      "Dla mnie najważniejsza jest relacja z dzieckiem.",
+    fullDescription: null,
+    quote: "Dla mnie najważniejsza jest relacja z dzieckiem.",
   },
 ];
+
+function TherapistCard({
+  therapist,
+  index,
+}: {
+  therapist: (typeof therapists)[0];
+  index: number;
+}) {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  return (
+    <motion.div
+      key={therapist.id}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      id={therapist.id}
+      className="scroll-mt-24"
+    >
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-polana-dark-green/5">
+        <div
+          className={`grid md:grid-cols-3 gap-0 ${
+            index % 2 === 1 ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          {/* Photo */}
+          <div
+            className={`relative aspect-square md:aspect-auto min-h-[300px] md:min-h-[400px] ${
+              index % 2 === 1 ? "md:order-2" : ""
+            }`}
+          >
+            <Image
+              src={therapist.photo}
+              alt={therapist.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </div>
+
+          {/* Content */}
+          <div
+            className={`md:col-span-2 p-8 md:p-12 ${
+              index % 2 === 1 ? "md:order-1" : ""
+            }`}
+          >
+            <div className="max-w-2xl">
+              <p className="text-sm text-polana-dark-green/60 font-medium mb-2 uppercase tracking-wide">
+                {therapist.experience}
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-polana-dark-green mb-2">
+                {therapist.name}
+              </h2>
+              <p className="text-lg text-polana-lime font-medium mb-6">
+                {therapist.role}
+              </p>
+
+              <p className="text-polana-dark-green/80 leading-relaxed mb-4">
+                {therapist.shortDescription}
+                {therapist.fullDescription && !isExpanded && "..."}
+              </p>
+
+              {/* Expandable full description */}
+              {therapist.fullDescription && (
+                <>
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="text-polana-dark-green/80 leading-relaxed mb-4 whitespace-pre-line">
+                          {therapist.fullDescription}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="inline-flex items-center gap-2 text-polana-dark-green font-medium mb-6 hover:text-polana-lime transition-colors group cursor-pointer"
+                  >
+                    <span>
+                      {isExpanded ? "Zwiń informacje" : "Więcej informacji"}
+                    </span>
+                    <motion.svg
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </motion.svg>
+                  </button>
+                </>
+              )}
+
+              {/* Quote */}
+              <blockquote className="border-l-4 border-polana-lime pl-4 italic text-polana-dark-green/70 mb-8">
+                &ldquo;{therapist.quote}&rdquo;
+              </blockquote>
+
+              {/* Specializations */}
+              <div className="mb-8">
+                <h3 className="text-sm font-semibold text-polana-dark-green mb-3 uppercase tracking-wide">
+                  Specjalizacje
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {therapist.specializations.map((spec) => (
+                    <span
+                      key={spec}
+                      className="px-3 py-1 bg-polana-olive/30 text-polana-dark-green rounded-full text-sm"
+                    >
+                      {spec}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <Button href="/umow-sie" variant="primary">
+                Umów wizytę
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function TerapeuciPage() {
   return (
@@ -85,87 +231,11 @@ export default function TerapeuciPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             {therapists.map((therapist, index) => (
-              <motion.div
+              <TherapistCard
                 key={therapist.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                id={therapist.id}
-                className="scroll-mt-24"
-              >
-                <div className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-polana-dark-green/5">
-                  <div
-                    className={`grid md:grid-cols-3 gap-0 ${
-                      index % 2 === 1 ? "md:flex-row-reverse" : ""
-                    }`}
-                  >
-                    {/* Photo */}
-                    <div
-                      className={`relative aspect-square md:aspect-auto min-h-[300px] md:min-h-[400px] ${
-                        index % 2 === 1 ? "md:order-2" : ""
-                      }`}
-                    >
-                      <Image
-                        src={therapist.photo}
-                        alt={therapist.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div
-                      className={`md:col-span-2 p-8 md:p-12 ${
-                        index % 2 === 1 ? "md:order-1" : ""
-                      }`}
-                    >
-                      <div className="max-w-2xl">
-                        <p className="text-sm text-polana-dark-green/60 font-medium mb-2 uppercase tracking-wide">
-                          {therapist.experience}
-                        </p>
-                        <h2 className="text-2xl md:text-3xl font-semibold text-polana-dark-green mb-2">
-                          {therapist.name}
-                        </h2>
-                        <p className="text-lg text-polana-lime font-medium mb-6">
-                          {therapist.role}
-                        </p>
-
-                        <p className="text-polana-dark-green/80 leading-relaxed mb-6">
-                          {therapist.description}
-                        </p>
-
-                        {/* Quote */}
-                        <blockquote className="border-l-4 border-polana-lime pl-4 italic text-polana-dark-green/70 mb-8">
-                          &ldquo;{therapist.quote}&rdquo;
-                        </blockquote>
-
-                        {/* Specializations */}
-                        <div className="mb-8">
-                          <h3 className="text-sm font-semibold text-polana-dark-green mb-3 uppercase tracking-wide">
-                            Specjalizacje
-                          </h3>
-                          <div className="flex flex-wrap gap-2">
-                            {therapist.specializations.map((spec) => (
-                              <span
-                                key={spec}
-                                className="px-3 py-1 bg-polana-olive/30 text-polana-dark-green rounded-full text-sm"
-                              >
-                                {spec}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        <Button href="/umow-sie" variant="primary">
-                          Umów wizytę
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                therapist={therapist}
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -211,4 +281,3 @@ export default function TerapeuciPage() {
     </>
   );
 }
-
