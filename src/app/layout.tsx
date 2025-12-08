@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
+
+const GA_MEASUREMENT_ID = "G-SBF32BY88T";
 
 const jost = Jost({
   subsets: ["latin", "latin-ext"],
@@ -151,6 +154,18 @@ export default function RootLayout({
   return (
     <html lang="pl" className={jost.variable}>
       <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
