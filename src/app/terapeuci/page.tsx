@@ -110,13 +110,13 @@ function TherapistCard({
             }`}
           >
             <div className="max-w-2xl">
-              <p className="text-sm text-polana-dark-green/60 font-medium mb-2 uppercase tracking-wide">
+              <p className="text-sm text-polana-dark-green font-medium mb-2 uppercase tracking-wide">
                 {therapist.experience}
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-polana-dark-green mb-2">
                 {therapist.name}
               </h2>
-              <p className="text-lg text-polana-lime font-medium mb-6">
+              <p className="text-lg text-polana-dark-green/70 font-medium mb-6">
                 {therapist.role}
               </p>
 

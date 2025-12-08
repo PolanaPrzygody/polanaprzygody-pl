@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/Button";
 
 export default function Home() {
@@ -291,18 +292,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
+                id: "katarzyna-karwatka",
                 name: "Katarzyna Karwatka",
                 role: "Założycielka, Logopeda",
                 experience: "Logopeda od 12 lat",
                 photo: "/images/terapeuci/kasia.jpeg",
               },
               {
+                id: "weronika-saczewska",
                 name: "Weronika Saczewska",
                 role: "Terapeuta SI",
                 experience: "Specjalista integracji sensorycznej",
                 photo: "/images/terapeuci/weronika.jpg",
               },
               {
+                id: "magdalena-wawrzycka",
                 name: "Magdalena Wawrzycka",
                 role: "Logopeda",
                 experience: "14 lat doświadczenia",
@@ -310,30 +314,32 @@ export default function Home() {
               },
             ].map((member, index) => (
               <motion.div
-                key={member.name}
+                key={member.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-polana-dark-green/10">
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <h3 className="text-xl font-semibold text-polana-dark-green">
-                  {member.name}
-                </h3>
-                <p className="text-polana-dark-green/70">{member.role}</p>
-                <p className="text-sm text-polana-dark-green/50 mt-1">
-                  {member.experience}
-                </p>
+                <Link href={`/terapeuci#${member.id}`} className="block">
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-polana-dark-green/10">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-polana-dark-green">
+                    {member.name}
+                  </h3>
+                  <p className="text-polana-dark-green/70">{member.role}</p>
+                  <p className="text-sm text-polana-dark-green/50 mt-1">
+                    {member.experience}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </div>
