@@ -74,13 +74,6 @@ src/
 │   ├── PageHeader.tsx     # Nagłówek strony
 │   ├── InstagramFeed.tsx  # Feed Instagram
 │   └── ImageGallery.tsx   # Galeria zdjęć
-└── content/               # Treści MDX
-    ├── poznaj-nas.mdx
-    ├── uslugi.mdx
-    └── terapeuci/
-        ├── katarzyna-karwatka.mdx
-        ├── weronika-saczewska.mdx
-        └── magdalena-wawrzycka.mdx
 ```
 
 ## 📝 Dodawanie treści
