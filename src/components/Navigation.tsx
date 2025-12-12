@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { href: "/poznaj-nas", label: "Poznaj nas" },
   { href: "/uslugi", label: "Usługi" },
+  { href: "/cennik", label: "Cennik" },
   { href: "/terapeuci", label: "Terapeuci" },
   { href: "/umow-sie", label: "Umów się!" },
 ];

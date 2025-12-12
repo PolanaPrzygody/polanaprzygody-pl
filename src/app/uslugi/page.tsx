@@ -5,6 +5,20 @@ import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { prices, formatPrice, PriceItem } from "@/data/prices";
+
+// Map service IDs to price IDs
+const servicePriceMap: Record<string, string[]> = {
+  logopedia: ["diagnoza-logopedyczna", "terapia-logopedyczna", "rediagnoza-logopedyczna"],
+  "integracja-sensoryczna": ["diagnoza-si", "terapia-si"],
+};
+
+// Get prices for a service
+function getServicePrices(serviceId: string): PriceItem[] {
+  const priceIds = servicePriceMap[serviceId] || [];
+  return prices.filter((p) => priceIds.includes(p.id));
+}
 
 const services = [
   {
@@ -226,6 +240,54 @@ export default function UslugiPage() {
                           </li>
                         ))}
                       </ul>
+
+                      {/* Prices section */}
+                      {getServicePrices(service.id).length > 0 && (
+                        <div className="mt-8 pt-6 border-t border-polana-dark-green/10">
+                          <h3 className="text-lg font-semibold text-polana-dark-green mb-4">
+                            Cennik
+                          </h3>
+                          <ul className="space-y-2">
+                            {getServicePrices(service.id).map((price) => (
+                              <li
+                                key={price.id}
+                                className="flex items-center justify-between text-polana-dark-green/80"
+                              >
+                                <span className="text-sm">
+                                  {price.name}
+                                  {price.description && (
+                                    <span className="text-polana-dark-green/50 ml-1">
+                                      ({price.description})
+                                    </span>
+                                  )}
+                                </span>
+                                <span className="font-semibold text-polana-dark-green ml-2 whitespace-nowrap">
+                                  {formatPrice(price.price, price.currency)}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                          <Link
+                            href="/cennik"
+                            className="inline-flex items-center gap-1 text-sm text-polana-dark-green/70 hover:text-polana-dark-green mt-3 transition-colors"
+                          >
+                            Pełny cennik
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </Link>
+                        </div>
+                      )}
                     </div>
 
                     {/* Right side - video (if available) */}

@@ -144,6 +144,12 @@ export function Footer() {
                 Usługi
               </Link>
               <Link
+                href="/cennik"
+                className="text-polana-straw/80 hover:text-polana-lime transition-colors"
+              >
+                Cennik
+              </Link>
+              <Link
                 href="/terapeuci"
                 className="text-polana-straw/80 hover:text-polana-lime transition-colors"
               >
