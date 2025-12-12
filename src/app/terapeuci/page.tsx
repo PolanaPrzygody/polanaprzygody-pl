@@ -51,18 +51,20 @@ const therapists = [
   {
     id: "magdalena-wawrzycka",
     name: "Magdalena Wawrzycka",
-    role: "Logopeda",
-    experience: "14 lat doświadczenia",
+    role: "Logopeda, Neurologopeda",
+    experience: "Logopeda i Neurologopeda",
     photo: "/images/terapeuci/magda.jpeg",
     specializations: [
-      "Terapia jąkania",
-      "Praca z dziećmi słabosłyszącymi",
-      "Metody komunikacji AAC",
+      "Logopedia kliniczna",
+      "Terapia miofunkcjonalna",
+      "Diagnoza zaburzeń mowy",
+      "Terapia zaburzeń komunikacji",
     ],
     shortDescription:
-      "Logopeda z 14-letnim stażem, która przez te lata pomogła setkom dzieci w odkrywaniu radości z komunikacji. Specjalizuje się w terapii jąkania i alternatywnych metodach komunikacji.",
-    fullDescription: null,
-    quote: "Dla mnie najważniejsza jest relacja z dzieckiem.",
+      "Jestem logopedą i neurologopedą, który nieustannie poszerza swoją wiedzę między innymi studiując logopedię kliniczną oraz uczestnicząc w licznych szkoleniach, kursach i konferencjach logopedycznych.",
+    fullDescription:
+      "Pozwala mi to jeszcze lepiej zgłębiać zagadnienia związane z diagnozą i terapią zaburzeń mowy oraz komunikacji, a także oferować wsparcie zgodne z najnowszą wiedzą i aktualnymi standardami.\n\nW swojej pracy prowadzę terapię miofunkcjonalną, która jest ważnym elementem mojej pracy. Skupiam się na prawidłowej pracy mięśni twarzy, języka i całego aparatu artykulacyjnego, aby wspierać dzieci w osiąganiu harmonijnego i prawidłowego rozwoju funkcji prymarnych, takich jak oddychanie, żucie, połykanie czy mowa.\n\nPraca z dziećmi jest moją pasją. W terapii stawiam na indywidualne podejście, uważność i budowanie relacji opartej na zaufaniu.\n\nJestem osobą ciepłą i zaangażowaną, a w swojej pracy dbam o to, by każde dziecko czuło się bezpiecznie i mogło rozwijać swój potencjał w swoim tempie.\n\nPrywatnie jestem mamą trzech wspaniałych dziewczynek ❤️",
+    quote: "W terapii stawiam na indywidualne podejście, uważność i budowanie relacji opartej na zaufaniu.",
   },
 ];
 
