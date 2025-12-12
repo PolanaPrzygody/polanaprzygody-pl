@@ -4,7 +4,37 @@ import { PageHeader } from "@/components/PageHeader";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
-import { prices, formatPrice, getPricesByCategory } from "@/data/prices";
+import { formatPrice, getPricesByCategory, PriceItem } from "@/data/prices";
+import Link from "next/link";
+
+// Component for price card with hover button
+function PriceCard({ item }: { item: PriceItem }) {
+  return (
+    <Card variant="elevated" className="group relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <h3 className="text-lg font-semibold text-polana-dark-green">
+          {item.name}
+        </h3>
+        {item.description && (
+          <p className="text-polana-dark-green/60 text-sm mt-1">
+            {item.description}
+          </p>
+        )}
+      </div>
+      <div className="flex items-center gap-4">
+        <div className="text-2xl font-bold text-polana-dark-green whitespace-nowrap">
+          {formatPrice(item.price, item.currency)}
+        </div>
+        <Link
+          href="/umow-sie"
+          className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-polana-dark-green text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-polana-olive whitespace-nowrap"
+        >
+          Umów Się
+        </Link>
+      </div>
+    </Card>
+  );
+}
 
 export default function CennikPage() {
   const diagnozy = getPricesByCategory("diagnoza");
@@ -67,21 +97,7 @@ export default function CennikPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card variant="elevated" className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                      <h3 className="text-lg font-semibold text-polana-dark-green">
-                        {item.name}
-                      </h3>
-                      {item.description && (
-                        <p className="text-polana-dark-green/60 text-sm mt-1">
-                          {item.description}
-                        </p>
-                      )}
-                    </div>
-                    <div className="text-2xl font-bold text-polana-dark-green whitespace-nowrap">
-                      {formatPrice(item.price, item.currency)}
-                    </div>
-                  </Card>
+                  <PriceCard item={item} />
                 </motion.div>
               ))}
             </div>
@@ -121,21 +137,7 @@ export default function CennikPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card variant="elevated" className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                      <h3 className="text-lg font-semibold text-polana-dark-green">
-                        {item.name}
-                      </h3>
-                      {item.description && (
-                        <p className="text-polana-dark-green/60 text-sm mt-1">
-                          {item.description}
-                        </p>
-                      )}
-                    </div>
-                    <div className="text-2xl font-bold text-polana-dark-green whitespace-nowrap">
-                      {formatPrice(item.price, item.currency)}
-                    </div>
-                  </Card>
+                  <PriceCard item={item} />
                 </motion.div>
               ))}
             </div>
