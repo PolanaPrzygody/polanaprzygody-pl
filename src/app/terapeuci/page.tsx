@@ -33,16 +33,19 @@ const therapists = [
     id: "weronika-saczewska",
     name: "Weronika Saczewska",
     role: "Terapeuta Integracji Sensorycznej",
-    experience: "Certyfikowany terapeuta SI",
+    experience: "14 lat doświadczenia",
     photo: "/images/terapeuci/weronika.jpg",
     specializations: [
       "Diagnoza i terapia SI",
       "Trudności w koncentracji",
       "Koordynacja ruchowa",
+      "Trening Umiejętności Społecznych",
+      "Biofeedback",
     ],
     shortDescription:
-      "Certyfikowany terapeuta integracji sensorycznej, która zamienia terapię w przygodę. W jej sali huśtamy się jak piraci, skaczemy jak kangury i wspinamy się jak alpiniści.",
-    fullDescription: null,
+      "Sympatyczna i zawsze uśmiechnięta terapeutka z 14-letnim doświadczeniem w pracy z dziećmi. Od kilku lat zajmuje się integracją sensoryczną, wspierając najmłodszych w budowaniu równowagi, rozwoju i pewności siebie. W swojej pracy łączy indywidualne podejście z ciepłą, pełną zrozumienia atmosferą.",
+    fullDescription:
+      "Stale poszerza swoją wiedzę, uczestnicząc w licznych szkoleniach i kursach, m.in. u Iwony Palickiej, Magdaleny Okrzasy oraz wielu innych specjalistów. Jest również trenerem Treningu Umiejętności Społecznych oraz terapeutą biofeedback, co pozwala jej jeszcze skuteczniej wspierać dzieci w rozwoju emocjonalnym, poznawczym i sensorycznym.",
     quote: "Terapia SI to dla mnie zabawa z sensem!",
   },
   {
