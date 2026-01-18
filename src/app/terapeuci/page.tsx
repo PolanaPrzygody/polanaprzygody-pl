@@ -66,6 +66,28 @@ const therapists = [
       "Pozwala mi to jeszcze lepiej zgłębiać zagadnienia związane z diagnozą i terapią zaburzeń mowy oraz komunikacji, a także oferować wsparcie zgodne z najnowszą wiedzą i aktualnymi standardami.\n\nW swojej pracy prowadzę terapię miofunkcjonalną, która jest ważnym elementem mojej pracy. Skupiam się na prawidłowej pracy mięśni twarzy, języka i całego aparatu artykulacyjnego, aby wspierać dzieci w osiąganiu harmonijnego i prawidłowego rozwoju funkcji prymarnych, takich jak oddychanie, żucie, połykanie czy mowa.\n\nPraca z dziećmi jest moją pasją. W terapii stawiam na indywidualne podejście, uważność i budowanie relacji opartej na zaufaniu.\n\nJestem osobą ciepłą i zaangażowaną, a w swojej pracy dbam o to, by każde dziecko czuło się bezpiecznie i mogło rozwijać swój potencjał w swoim tempie.\n\nPrywatnie jestem mamą trzech wspaniałych dziewczynek ❤️",
     quote: "W terapii stawiam na indywidualne podejście, uważność i budowanie relacji opartej na zaufaniu.",
   },
+  {
+    id: "anna-kuczkowska-pluta",
+    name: "mgr Anna Kuczkowska-Pluta",
+    role: "Psycholożka, Psychoterapeutka w trakcie szkolenia",
+    experience: "20 lat doświadczenia",
+    photo: "/images/terapeuci/ania.jpeg",
+    specializations: [
+      "Psychoterapia dzieci i młodzieży",
+      "Psychoterapia rodzinna",
+      "Diagnoza psychologiczna",
+      "Terapia poznawczo-behawioralna",
+      "Podejście systemowe",
+      "Integracja sensoryczna (SI)",
+      "ASD i ADHD",
+      "Zaburzenia lękowe i nastroju",
+    ],
+    shortDescription:
+      "Psycholożka i psychoterapeutka dzieci, młodzieży i rodzin. Prowadzi psychoterapię indywidualną, rodzinną oraz konsultacje dla rodziców. Pracuje w podejściu systemowym i poznawczo-behawioralnym.",
+    fullDescription:
+      "Ukończyłam psychologię na Uniwersytecie im. Adama Mickiewicza w Poznaniu. Szkolenie z terapii poznawczo-behawioralnej dzieci i młodzieży odbyłam w Szkole Psychoterapii Centrum CBT w Warszawie. Ukończyłam 3-stopniowe szkolenie z terapii behawioralnej zakończone Certyfikatem Nauczyciela-Terapeuty dziecka z autyzmem w Instytucie Wspomagania Rozwoju Dziecka w Gdańsku. Obecnie uczestniczę w Całościowym Kursie Psychoterapii w nurcie systemowo-eriksonowskim (IV rok szkolenia) we Wrocławskim Instytucie Psychoterapii.\n\nJestem certyfikowaną trenerką Treningu Umiejętności Społecznych oraz kotrenerem Treningu Zastępowania Agresji (ART). Ukończyłam studia podyplomowe z neurologopedii oraz kurs terapii integracji sensorycznej, posiadam także kwalifikacje w zakresie wczesnego wspomagania rozwoju dziecka.\n\nW pracy diagnostycznej i terapeutycznej wspieram dzieci i młodzież z trudnościami wychowawczymi, zaburzeniami lękowymi, depresyjnymi, psychosomatycznymi, zaburzeniami odżywiania oraz z diagnozą ASD i ADHD. Współpraca z rodziną jest dla mnie kluczowa, a swoją pracę poddaję stałej superwizji i prowadzę zgodnie z kodeksem etycznym Polskiego Towarzystwa Psychologicznego.",
+    quote: "Współpraca z rodziną to klucz do skutecznej terapii.",
+  },
 ];
 
 function TherapistCard({

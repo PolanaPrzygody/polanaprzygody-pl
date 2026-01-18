@@ -12,6 +12,7 @@ import { prices, formatPrice, PriceItem } from "@/data/prices";
 const servicePriceMap: Record<string, string[]> = {
   logopedia: ["diagnoza-logopedyczna", "terapia-logopedyczna", "rediagnoza-logopedyczna"],
   "integracja-sensoryczna": ["diagnoza-si", "terapia-si"],
+  psycholog: ["konsultacja-psychologa"],
 };
 
 // Get prices for a service
@@ -85,6 +86,38 @@ const services = [
       "Dzieci nadmiernie ruchliwe lub zbyt spokojne",
       "Dzieci z trudnościami w koordynacji",
       "Dzieci z nadwrażliwością sensoryczną",
+    ],
+  },
+  {
+    id: "psycholog",
+    title: "Psycholog",
+    description:
+      "Pomagamy dzieciom i młodzieży w trudnościach emocjonalnych, zachowaniu i relacjach. Pracujemy w podejściu systemowym i poznawczo-behawioralnym, z aktywnym udziałem rodziny.",
+    image: "/images/gabinety/gabinet-psychologa.png",
+    imageAlt: "Gabinet psychologa w Polanie Przygody",
+    video: null,
+    videoTitle: null,
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M15 19a4 4 0 00-8 0m8 0v-1a4 4 0 00-8 0v1m8 0h3a2 2 0 002-2v-1a6 6 0 00-6-6h-1m-4 0H8a6 6 0 00-6 6v1a2 2 0 002 2h3m6-9a3 3 0 11-6 0 3 3 0 016 0z"
+      />
+    ),
+    color: "bg-polana-olive/20",
+    features: [
+      "Konsultacje psychologiczne",
+      "Wsparcie w trudnościach emocjonalnych i lękach",
+      "Praca nad relacjami i komunikacją w rodzinie",
+      "Psychoedukacja i wskazówki dla rodziców",
+      "Współpraca z rodziną i szkołą",
+    ],
+    forWhom: [
+      "Dzieci z obniżonym nastrojem lub lękami",
+      "Dzieci z trudnościami wychowawczymi",
+      "Dzieci i młodzież w kryzysach emocjonalnych",
+      "Rodziny szukające wsparcia i planu działania",
     ],
   },
   {
@@ -427,4 +460,3 @@ export default function UslugiPage() {
     </>
   );
 }
-

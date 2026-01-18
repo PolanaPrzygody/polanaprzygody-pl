@@ -46,6 +46,13 @@ export const prices: PriceItem[] = [
     currency: "zł",
     category: "terapia",
   },
+  {
+    id: "konsultacja-psychologa",
+    name: "Konsultacja psychologa",
+    price: 220,
+    currency: "zł",
+    category: "terapia",
+  },
 ];
 
 // Helper function to format price
@@ -62,4 +69,3 @@ export function getPricesByCategory(category: PriceItem["category"]): PriceItem[
 export function getPriceById(id: string): PriceItem | undefined {
   return prices.find((item) => item.id === id);
 }
-
