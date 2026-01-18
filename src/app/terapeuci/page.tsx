@@ -68,7 +68,7 @@ const therapists = [
   },
   {
     id: "anna-kuczkowska-pluta",
-    name: "mgr Anna Kuczkowska-Pluta",
+    name: "Anna Kuczkowska-Pluta",
     role: "Psycholożka, Psychoterapeutka w trakcie szkolenia",
     experience: "20 lat doświadczenia",
     photo: "/images/terapeuci/ania.jpeg",
