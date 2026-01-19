@@ -1,4 +1,5 @@
 import Link from "next/link";
+import packageJson from "../../package.json";
 
 export function Footer() {
   return (
@@ -174,9 +175,9 @@ export function Footer() {
           >
             Polityka prywatności i regulamin serwisu
           </Link>
+          <p className="mt-2 text-xs text-polana-straw/40">Wersja {packageJson.version}</p>
         </div>
       </div>
     </footer>
   );
 }
-
