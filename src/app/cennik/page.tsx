@@ -39,6 +39,23 @@ function PriceCard({ item }: { item: PriceItem }) {
 export default function CennikPage() {
   const diagnozy = getPricesByCategory("diagnoza");
   const terapie = getPricesByCategory("terapia");
+  const infoItems = [
+    "Płatność gotówką lub przelewem",
+    "Istnieje możliwość wystawienia faktury",
+    "Odwołanie wizyty należy zgłosić minimum 24 godziny wcześniej",
+    "Pierwsza wizyta obejmuje rozmowę z rodzicami i wstępną ocenę",
+    "Czas wizyty (dotyczy wszystkich rodzajów wizyt): 40 minut pracy z dzieckiem + 10 minut rozmowy z rodzicem (łącznie 50 minut)",
+    <>
+      Obowiązuje{" "}
+      <Link
+        href="/regulamin-swiadczenia-uslug"
+        className="text-polana-dark-green font-medium underline decoration-polana-olive/50 hover:decoration-polana-dark-green hover:decoration-2 transition-all"
+      >
+        regulamin świadczenia usług
+      </Link>
+      .
+    </>,
+  ];
 
   return (
     <>
@@ -159,12 +176,7 @@ export default function CennikPage() {
             </h2>
 
             <ul className="space-y-4">
-              {[
-                "Płatność gotówką lub przelewem",
-                "Istnieje możliwość wystawienia faktury",
-                "Odwołanie wizyty należy zgłosić minimum 24 godziny wcześniej",
-                "Pierwsza wizyta obejmuje rozmowę z rodzicami i wstępną ocenę",
-              ].map((info, index) => (
+              {infoItems.map((info, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -10 }}

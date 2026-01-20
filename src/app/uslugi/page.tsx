@@ -222,6 +222,16 @@ export default function UslugiPage() {
                       <p className="text-lg text-polana-dark-green/70 mb-8">
                         {service.description}
                       </p>
+                      <p className="text-sm text-polana-dark-green/60 mb-8">
+                        Obowiązuje{" "}
+                        <Link
+                          href="/regulamin-swiadczenia-uslug"
+                          className="text-polana-dark-green font-medium underline decoration-polana-olive/50 hover:decoration-polana-dark-green hover:decoration-2 transition-all"
+                        >
+                          regulamin świadczenia usług
+                        </Link>
+                        .
+                      </p>
 
                       <div className="mb-8">
                         <h3 className="text-lg font-semibold text-polana-dark-green mb-4">

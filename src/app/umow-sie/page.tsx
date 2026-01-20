@@ -13,6 +13,7 @@ interface FormData {
   phone: string;
   message: string;
   acceptedTerms: boolean;
+  acceptedServiceTerms: boolean;
 }
 
 interface FormStatus {
@@ -27,6 +28,7 @@ export default function UmowSiePage() {
     phone: "",
     message: "",
     acceptedTerms: false,
+    acceptedServiceTerms: false,
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: "idle" });
@@ -59,7 +61,14 @@ export default function UmowSiePage() {
           type: "success",
           message: "Dziękujemy! Wiadomość została wysłana. Odezwiemy się wkrótce.",
         });
-        setFormData({ name: "", email: "", phone: "", message: "", acceptedTerms: false });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          acceptedTerms: false,
+          acceptedServiceTerms: false,
+        });
       } else {
         setStatus({
           type: "error",
@@ -238,6 +247,32 @@ export default function UmowSiePage() {
                       </label>
                     </div>
 
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        id="acceptedServiceTerms"
+                        name="acceptedServiceTerms"
+                        checked={formData.acceptedServiceTerms}
+                        onChange={handleChange}
+                        required
+                        className="mt-1 w-4 h-4 text-polana-lime bg-white border-polana-olive/30 rounded focus:ring-polana-lime focus:ring-2 cursor-pointer"
+                      />
+                      <label
+                        htmlFor="acceptedServiceTerms"
+                        className="text-sm text-polana-dark-green/70 cursor-pointer"
+                      >
+                        Akceptuję{" "}
+                        <Link
+                          href="/regulamin-swiadczenia-uslug"
+                          className="text-polana-dark-green font-medium underline decoration-polana-olive/50 hover:decoration-polana-dark-green hover:decoration-2 transition-all"
+                          target="_blank"
+                        >
+                          regulamin świadczenia usług
+                        </Link>
+                        . *
+                      </label>
+                    </div>
+
                     {/* Error message */}
                     {status.type === "error" && (
                       <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
@@ -251,7 +286,11 @@ export default function UmowSiePage() {
                       variant="primary"
                       size="lg"
                       className="w-full"
-                      disabled={status.type === "loading" || !formData.acceptedTerms}
+                      disabled={
+                        status.type === "loading" ||
+                        !formData.acceptedTerms ||
+                        !formData.acceptedServiceTerms
+                      }
                     >
                       {status.type === "loading" ? (
                         <span className="flex items-center gap-2">
@@ -486,4 +525,3 @@ export default function UmowSiePage() {
     </>
   );
 }
-
