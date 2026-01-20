@@ -29,7 +29,7 @@ function PriceCard({ item }: { item: PriceItem }) {
           href="/umow-sie"
           className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-polana-dark-green text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-polana-olive whitespace-nowrap"
         >
-          Umów Się
+          Umów się
         </Link>
       </div>
     </Card>
@@ -239,4 +239,3 @@ export default function CennikPage() {
     </>
   );
 }
-

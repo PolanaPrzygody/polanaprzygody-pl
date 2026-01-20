@@ -22,7 +22,7 @@ export const prices: PriceItem[] = [
     name: "Diagnoza logopedyczna",
     price: 300,
     currency: "zł",
-    description: "Jedna diagnoza trwa 90 min",
+    description: "2 spotkania: 1 z rodzicem, drugie z dzieckiem",
     category: "diagnoza",
   },
   {
