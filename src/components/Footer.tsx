@@ -175,6 +175,13 @@ export function Footer() {
           >
             Polityka prywatności i regulamin serwisu
           </Link>
+          <span className="mx-2 text-polana-straw/30">|</span>
+          <Link
+            href="/regulamin-swiadczenia-uslug"
+            className="hover:text-polana-lime transition-colors"
+          >
+            Regulamin świadczenia usług
+          </Link>
           <p className="mt-2 text-xs text-polana-straw/40">Wersja {packageJson.version}</p>
         </div>
       </div>

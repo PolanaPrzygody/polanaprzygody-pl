@@ -29,13 +29,22 @@ export default function RegulaminSwiadczeniaUslugPage() {
               prose-a:text-polana-lime prose-a:no-underline hover:prose-a:underline 
               prose-strong:text-polana-dark-green"
           >
-            <h2>Regulamin Centrum Rozwoju Dziecka Polana Przygody KATARZYNA KARWATKA</h2>
+            <p className="lead text-xl text-polana-dark-green/70 mb-6">
+              Regulamin Centrum Rozwoju Dziecka Polana Przygody KATARZYNA KARWATKA
+            </p>
             <p>
               <strong>("Regulamin")</strong>
             </p>
 
-            <h2>1. CEL REGULAMINU</h2>
-            <ol>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">
+                  1
+                </span>
+                Cel regulaminu
+              </h2>
+            </div>
+            <ol className="space-y-3 list-decimal pl-6">
               <li>
                 Celem ustalenia niniejszego Regulaminu jest określenie ogólnych reguł
                 korzystania z usług Centrum Rozwoju Dziecka Polana Przygody KATARZYNA
@@ -56,11 +65,18 @@ export default function RegulaminSwiadczeniaUslugPage() {
               </li>
             </ol>
 
-            <h2>2. ZAKRES ŚWIADCZONYCH USŁUG</h2>
-            <ol>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">
+                  2
+                </span>
+                Zakres świadczonych usług
+              </h2>
+            </div>
+            <ol className="space-y-3 list-decimal pl-6">
               <li>
                 Polana Przygody oferuje:
-                <ol>
+                <ol className="space-y-2 list-decimal pl-6">
                   <li>
                     usługi logopedyczne: przeprowadzenie diagnozy logopedycznej,
                     prowadzenie terapii logopedycznej;
@@ -106,8 +122,15 @@ export default function RegulaminSwiadczeniaUslugPage() {
               </li>
             </ol>
 
-            <h2>3. OBOWIĄZKI UCZESTNIKA</h2>
-            <ol>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">
+                  3
+                </span>
+                Obowiązki uczestnika
+              </h2>
+            </div>
+            <ol className="space-y-3 list-decimal pl-6">
               <li>
                 Uczestnik (lub jego opiekun prawny) zobowiązany jest do terminowego
                 uiszczania opłat. W przypadku nieuiszczenia opłaty, Polana Przygody ma
@@ -165,8 +188,15 @@ export default function RegulaminSwiadczeniaUslugPage() {
               </li>
             </ol>
 
-            <h2>4. UMAWIANIE, ODWOŁYWANIE I ZMIANA TERMINU WIZYTY</h2>
-            <ol>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">
+                  4
+                </span>
+                Umawianie, odwoływanie i zmiana terminu wizyty
+              </h2>
+            </div>
+            <ol className="space-y-3 list-decimal pl-6">
               <li>
                 Na wizytę w Polanie Przygody można umawiać się przez stronę internetową
                 polanaprzygody.pl, na portalu społecznościowym facebook, instagram
@@ -198,8 +228,15 @@ export default function RegulaminSwiadczeniaUslugPage() {
               </li>
             </ol>
 
-            <h2>5. PŁATNOŚCI ZA USŁUGI</h2>
-            <ol>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">
+                  5
+                </span>
+                Płatności za usługi
+              </h2>
+            </div>
+            <ol className="space-y-3 list-decimal pl-6">
               <li>
                 Opłata za usługi świadczone na Polanie Przygody pobierana jest według
                 cennika zamieszczonego bezpośrednio na stronie polanaprzygody.pl lub w
@@ -219,8 +256,15 @@ export default function RegulaminSwiadczeniaUslugPage() {
               </li>
             </ol>
 
-            <h2>6. POSTANOWIENIA KOŃCOWE</h2>
-            <ol>
+            <div className="mt-6 mb-6">
+              <h2 className="flex items-center gap-4 font-bold text-xl">
+                <span className="w-10 h-10 rounded-full bg-polana-lime/20 flex items-center justify-center text-polana-dark-green font-bold text-lg">
+                  6
+                </span>
+                Postanowienia końcowe
+              </h2>
+            </div>
+            <ol className="space-y-3 list-decimal pl-6">
               <li>
                 Aktualna wersja regulaminu obowiązuje od 01.01.2026 Polana Przygody
                 zastrzega sobie prawo do wprowadzenia zmian w Regulaminie.
