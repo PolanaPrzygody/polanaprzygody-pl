@@ -10,7 +10,12 @@ import { prices, formatPrice, PriceItem } from "@/data/prices";
 
 // Map service IDs to price IDs
 const servicePriceMap: Record<string, string[]> = {
-  logopedia: ["diagnoza-logopedyczna", "terapia-logopedyczna", "rediagnoza-logopedyczna"],
+  logopedia: [
+    "diagnoza-logopedyczna",
+    "opinia-logopedyczna",
+    "terapia-logopedyczna",
+    "rediagnoza-logopedyczna",
+  ],
   "integracja-sensoryczna": ["diagnoza-si", "terapia-si"],
   psycholog: ["konsultacja-psychologa"],
 };

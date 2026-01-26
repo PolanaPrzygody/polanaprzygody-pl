@@ -26,6 +26,14 @@ export const prices: PriceItem[] = [
     category: "diagnoza",
   },
   {
+    id: "opinia-logopedyczna",
+    name: "Wydanie opinii logopedycznej",
+    price: 150,
+    currency: "zł",
+    description: "usługa dodatkowo płatna",
+    category: "diagnoza",
+  },
+  {
     id: "terapia-logopedyczna",
     name: "Terapia logopedyczna",
     price: 200,
