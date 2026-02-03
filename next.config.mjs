@@ -3,6 +3,15 @@ import createMDX from '@next/mdx';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  async redirects() {
+    return [
+      {
+        source: '/rejestracja',
+        destination: '/umow-sie',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -22,4 +31,3 @@ const withMDX = createMDX({
 });
 
 export default withMDX(nextConfig);
-
