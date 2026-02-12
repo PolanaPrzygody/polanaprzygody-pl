@@ -17,7 +17,7 @@ const servicePriceMap: Record<string, string[]> = {
     "rediagnoza-logopedyczna",
   ],
   "integracja-sensoryczna": ["diagnoza-si", "terapia-si"],
-  psycholog: ["konsultacja-psychologa"],
+  psycholog: ["diagnoza-psychologiczna", "konsultacja-psychologa"],
 };
 
 // Get prices for a service

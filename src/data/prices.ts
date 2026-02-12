@@ -26,6 +26,15 @@ export const prices: PriceItem[] = [
     category: "diagnoza",
   },
   {
+    id: "diagnoza-psychologiczna",
+    name: "Diagnoza psychologiczna",
+    price: 750,
+    currency: "zł",
+    description:
+      "2 spotkania diagnostyczne + 1 spotkanie omówienia diagnozy",
+    category: "diagnoza",
+  },
+  {
     id: "opinia-logopedyczna",
     name: "Wydanie opinii logopedycznej",
     price: 150,
