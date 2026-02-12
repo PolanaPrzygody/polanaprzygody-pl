@@ -28,7 +28,7 @@ export const prices: PriceItem[] = [
   {
     id: "diagnoza-psychologiczna",
     name: "Diagnoza psychologiczna",
-    price: 750,
+    price: 700,
     currency: "zł",
     description:
       "2 spotkania diagnostyczne + 1 spotkanie omówienia diagnozy",
