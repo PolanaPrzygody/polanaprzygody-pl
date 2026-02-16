@@ -3,42 +3,9 @@
 import { PageHeader } from "@/components/PageHeader";
 import { Card } from "@/components/Card";
 import { InstagramFeed } from "@/components/InstagramFeed";
-import { ImageGallery } from "@/components/ImageGallery";
+import { SpaceGallerySection } from "@/components/SpaceGallerySection";
 import { motion } from "framer-motion";
 import Script from "next/script";
-
-const spaceImages = [
-  {
-    src: "/images/gabinety/poczekalnia.png",
-    alt: "Poczekalnia",
-    caption: "Przytulna poczekalnia – miejsce, gdzie zaczyna się przygoda",
-  },
-  {
-    src: "/images/gabinety/gabinet-logopedy-1.png",
-    alt: "Gabinet logopedyczny",
-    caption: "Gabinet logopedyczny – przestrzeń do ćwiczeń mowy",
-  },
-  {
-    src: "/images/gabinety/gabinet-logopedy-2.png",
-    alt: "Gabinet logopedyczny z pomocami",
-    caption: "Kolorowe pomoce dydaktyczne wspierające terapię",
-  },
-  {
-    src: "/images/gabinety/gabinet-logopedy-3.png",
-    alt: "Kącik do ćwiczeń",
-    caption: "Kącik do indywidualnej pracy z dzieckiem",
-  },
-  {
-    src: "/images/gabinety/sala-si.png",
-    alt: "Sala integracji sensorycznej",
-    caption: "Sala SI – tu każda zabawa ma głębszy sens",
-  },
-  {
-    src: "/images/gabinety/gabinet-psychologa.png",
-    alt: "Gabinet psychologa",
-    caption: "Spokojne miejsce do rozmów i konsultacji",
-  },
-];
 
 export default function PoznajNasPage() {
   return (
@@ -140,27 +107,7 @@ export default function PoznajNasPage() {
         </div>
       </section>
 
-      {/* Space gallery */}
-      <section className="py-12 md:py-20 bg-polana-straw">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-semibold text-polana-dark-green mb-4">
-              Nasza przestrzeń
-            </h2>
-            <p className="text-lg text-polana-dark-green/70 max-w-2xl mx-auto">
-              Gabinety zaprojektowane z myślą o najmłodszych – kolorowe, przestronne i
-              wypełnione specjalistycznym sprzętem
-            </p>
-          </motion.div>
-
-          <ImageGallery images={spaceImages} columns={3} />
-        </div>
-      </section>
+      <SpaceGallerySection sectionId="galeria-zdjec" />
 
       {/* Instagram Feed */}
       <section className="py-12 md:py-20 bg-polana-olive/20">
@@ -229,4 +176,3 @@ export default function PoznajNasPage() {
     </>
   );
 }
-

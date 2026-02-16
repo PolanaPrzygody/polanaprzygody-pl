@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { href: "/poznaj-nas", label: "Poznaj nas" },
+  { href: "/galeria-zdjec", label: "Galeria zdjęć" },
   { href: "/uslugi", label: "Usługi" },
   { href: "/cennik", label: "Cennik" },
   { href: "/terapeuci", label: "Terapeuci" },
@@ -134,4 +135,3 @@ export function Navigation() {
     </header>
   );
 }
-
