@@ -12,7 +12,7 @@ export const prices: PriceItem[] = [
   {
     id: "diagnoza-si",
     name: "Diagnoza integracji sensorycznej",
-    price: 650,
+    price: 750,
     currency: "zł",
     description: "4 spotkania",
     category: "diagnoza",
