@@ -2,7 +2,7 @@
 export interface PriceItem {
   id: string;
   name: string;
-  price: number;
+  price: number | string;
   currency: string;
   description?: string;
   category: "diagnoza" | "terapia";
@@ -28,10 +28,9 @@ export const prices: PriceItem[] = [
   {
     id: "diagnoza-psychologiczna",
     name: "Diagnoza psychologiczna",
-    price: 700,
+    price: "700-1000",
     currency: "zł",
-    description:
-      "2 spotkania diagnostyczne + 1 spotkanie omówienia diagnozy",
+    description: "w zależności od zakresu diagnozy i ilości spotkań",
     category: "diagnoza",
   },
   {
@@ -73,7 +72,10 @@ export const prices: PriceItem[] = [
 ];
 
 // Helper function to format price
-export function formatPrice(price: number, currency: string = "zł"): string {
+export function formatPrice(
+  price: number | string,
+  currency: string = "zł"
+): string {
   return `${price} ${currency}`;
 }
 
