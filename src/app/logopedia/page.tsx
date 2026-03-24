@@ -62,18 +62,7 @@ function LeadForm({ id }: { id?: string }) {
       const data = await response.json();
 
       if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Dziękujemy! Oddzwonimy jak najszybciej.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          acceptedTerms: false,
-          acceptedServiceTerms: false,
-        });
+        window.location.href = "/logopedia/dziekujemy";
       } else {
         setStatus({
           type: "error",
@@ -369,18 +358,7 @@ function InlineLeadForm({ id }: { id?: string }) {
       const data = await response.json();
 
       if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Dziękujemy! Oddzwonimy jak najszybciej.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          acceptedTerms: false,
-          acceptedServiceTerms: false,
-        });
+        window.location.href = "/logopedia/dziekujemy";
       } else {
         setStatus({
           type: "error",
