@@ -163,6 +163,34 @@ export function Footer() {
                 Umów się!
               </Link>
             </nav>
+
+          </div>
+        </div>
+
+        {/* Specialties bar */}
+        <div className="mt-8 pt-8 border-t border-polana-olive/20">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+            <h4 className="text-polana-lime font-medium text-sm whitespace-nowrap">Nasze specjalności</h4>
+            <nav className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/logopedia"
+                className="px-4 py-1.5 rounded-full border border-polana-olive/30 text-sm text-polana-straw/80 hover:text-polana-lime hover:border-polana-lime/40 transition-colors"
+              >
+                Logopedia
+              </Link>
+              <Link
+                href="/uslugi#integracja-sensoryczna"
+                className="px-4 py-1.5 rounded-full border border-polana-olive/30 text-sm text-polana-straw/80 hover:text-polana-lime hover:border-polana-lime/40 transition-colors"
+              >
+                Integracja sensoryczna
+              </Link>
+              <Link
+                href="/uslugi#psycholog"
+                className="px-4 py-1.5 rounded-full border border-polana-olive/30 text-sm text-polana-straw/80 hover:text-polana-lime hover:border-polana-lime/40 transition-colors"
+              >
+                Psycholog
+              </Link>
+            </nav>
           </div>
         </div>
 
