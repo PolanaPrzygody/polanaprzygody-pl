@@ -17,6 +17,28 @@ export const metadata: Metadata = {
     "neurologopeda dla dzieci Wrocław",
     "Polana Przygody",
   ],
+  openGraph: {
+    title: "Logopeda i neurologopeda dla dzieci | Polana Przygody",
+    description:
+      "Diagnoza i terapia logopedyczna oraz neurologopedyczna dla dzieci we Wrocławiu.",
+    url: "https://polanaprzygody.pl/logopedia",
+    type: "website",
+    images: [
+      {
+        url: "/images/social/og-logopedia.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Logopeda i neurologopeda dla dzieci w Polanie Przygody",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Logopeda i neurologopeda dla dzieci | Polana Przygody",
+    description:
+      "Diagnoza i terapia logopedyczna oraz neurologopedyczna dla dzieci we Wrocławiu.",
+    images: ["/images/social/og-logopedia.jpg"],
+  },
   robots: {
     index: false,
     follow: false,

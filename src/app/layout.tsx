@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Jost } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -17,8 +17,28 @@ const jost = Jost({
 
 const siteUrl = "https://polanaprzygody.pl";
 
+export const viewport: Viewport = {
+  themeColor: "#2A5C47",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
   title: {
     default: "Polana Przygody | Centrum Rozwoju Dziecka Wrocław",
     template: "%s | Polana Przygody",
@@ -62,7 +82,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/gabinety/poczekalnia.png",
+        url: "/images/social/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "Polana Przygody - Centrum Rozwoju Dziecka",
@@ -74,7 +94,7 @@ export const metadata: Metadata = {
     title: "Polana Przygody | Centrum Rozwoju Dziecka Wrocław",
     description:
       "Profesjonalna logopedia i terapia integracji sensorycznej dla dzieci we Wrocławiu.",
-    images: ["/images/gabinety/poczekalnia.png"],
+    images: ["/images/social/og-default.jpg"],
   },
   robots: {
     index: true,

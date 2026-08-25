@@ -14,7 +14,23 @@ export const metadata: Metadata = {
     title: "Umów wizytę | Polana Przygody",
     description:
       "Umów wizytę w Polanie Przygody. Logopedia i terapia SI we Wrocławiu. Tel: 790 512 258.",
-    images: ["/images/gabinety/poczekalnia.png"],
+    url: "https://polanaprzygody.pl/umow-sie",
+    type: "website",
+    images: [
+      {
+        url: "/images/social/og-kontakt.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Umów wizytę w Polanie Przygody we Wrocławiu",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Umów wizytę | Polana Przygody",
+    description:
+      "Skontaktuj się z Polaną Przygody i umów wizytę we Wrocławiu.",
+    images: ["/images/social/og-kontakt.jpg"],
   },
   alternates: {
     canonical: "https://polanaprzygody.pl/umow-sie",
@@ -28,4 +44,3 @@ export default function UmowSieLayout({
 }) {
   return children;
 }
-
