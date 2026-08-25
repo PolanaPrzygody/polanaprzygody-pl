@@ -57,18 +57,6 @@ const data: ServiceLandingData = {
       description: "Rodzic otrzymuje informacje wspierające utrwalanie ćwiczonych umiejętności na co dzień.",
     },
   ],
-  specialists: [
-    {
-      name: "Weronika Saczewska",
-      role: "Certyfikowana trenerka TUS",
-      id: "weronika-saczewska",
-    },
-    {
-      name: "Anna Kuczkowska-Pluta",
-      role: "Certyfikowana trenerka TUS",
-      id: "anna-kuczkowska-pluta",
-    },
-  ],
   faq: [
     {
       question: "Ile osób jest w grupie TUS?",

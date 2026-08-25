@@ -57,18 +57,6 @@ const data: ServiceLandingData = {
       description: "Jeśli jest wskazana, rozpoczynamy regularne, indywidualne zajęcia SI.",
     },
   ],
-  specialists: [
-    {
-      name: "Weronika Saczewska",
-      role: "Terapeutka integracji sensorycznej",
-      id: "weronika-saczewska",
-    },
-    {
-      name: "Anna Kuczkowska-Pluta",
-      role: "Psycholożka, posiada kwalifikacje w zakresie SI",
-      id: "anna-kuczkowska-pluta",
-    },
-  ],
   faq: [
     {
       question: "Co to jest integracja sensoryczna?",

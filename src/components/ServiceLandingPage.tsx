@@ -16,7 +16,6 @@ export interface ServiceLandingData {
   scopeTitle: string;
   scope: string[];
   process: Array<{ title: string; description: string }>;
-  specialists: Array<{ name: string; role: string; id: string }>;
   faq: Array<{ question: string; answer: string }>;
   related: Array<{ label: string; href: string }>;
 }
@@ -151,26 +150,6 @@ export function ServiceLandingPage({ data }: { data: ServiceLandingData }) {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="bg-polana-straw py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-semibold text-polana-dark-green mb-8 text-center">
-            Specjaliści
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {data.specialists.map((specialist) => (
-              <Link
-                key={specialist.id}
-                href={`/terapeuci#${specialist.id}`}
-                className="block bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h3 className="font-semibold text-polana-dark-green text-lg">{specialist.name}</h3>
-                <p className="text-polana-dark-green/65">{specialist.role}</p>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 

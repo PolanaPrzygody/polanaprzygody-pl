@@ -58,13 +58,6 @@ const data: ServiceLandingData = {
       description: "Praca może obejmować dziecko, rodziców lub całą rodzinę — zależnie od sytuacji.",
     },
   ],
-  specialists: [
-    {
-      name: "Anna Kuczkowska-Pluta",
-      role: "Psycholożka, psychoterapeutka w trakcie szkolenia",
-      id: "anna-kuczkowska-pluta",
-    },
-  ],
   faq: [
     {
       question: "Ile kosztuje konsultacja psychologa dziecięcego?",
