@@ -4,6 +4,7 @@ import { InlineServiceLeadForm } from "@/components/InlineServiceLeadForm";
 
 export interface ServiceLandingData {
   slug: string;
+  subjectId: string;
   eyebrow: string;
   title: string;
   titleAccent: string;
@@ -87,6 +88,7 @@ export function ServiceLandingPage({ data }: { data: ServiceLandingData }) {
             <InlineServiceLeadForm
               id={`${data.slug}-hero-form`}
               serviceName={data.eyebrow}
+              subjectId={data.subjectId}
               defaultMessage={contactMessage}
             />
           </div>
@@ -248,6 +250,7 @@ export function ServiceLandingPage({ data }: { data: ServiceLandingData }) {
           <InlineServiceLeadForm
             id={`${data.slug}-bottom-form`}
             serviceName={data.eyebrow}
+            subjectId={data.subjectId}
             defaultMessage={contactMessage}
           />
 

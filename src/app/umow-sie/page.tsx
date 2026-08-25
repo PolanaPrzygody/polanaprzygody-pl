@@ -3,10 +3,14 @@
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { formatPrice, prices } from "@/data/prices";
+import {
+  GENERAL_CONTACT_SUBJECT,
+  normalizeContactSubject,
+} from "@/lib/contact";
 
 interface FormData {
   subject: string;
@@ -24,8 +28,9 @@ interface FormStatus {
 }
 
 export default function UmowSiePage() {
+  const [initialSubject, setInitialSubject] = useState(GENERAL_CONTACT_SUBJECT);
   const [formData, setFormData] = useState<FormData>({
-    subject: "general",
+    subject: GENERAL_CONTACT_SUBJECT,
     name: "",
     email: "",
     phone: "",
@@ -35,6 +40,18 @@ export default function UmowSiePage() {
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: "idle" });
+
+  useEffect(() => {
+    const requestedSubject = normalizeContactSubject(
+      new URLSearchParams(window.location.search).get("subject"),
+    );
+
+    setInitialSubject(requestedSubject);
+    setFormData((previous) => ({
+      ...previous,
+      subject: requestedSubject,
+    }));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -67,7 +84,7 @@ export default function UmowSiePage() {
           message: "Dziękujemy! Wiadomość została wysłana. Odezwiemy się wkrótce.",
         });
         setFormData({
-          subject: "general",
+          subject: initialSubject,
           name: "",
           email: "",
           phone: "",
@@ -163,7 +180,7 @@ export default function UmowSiePage() {
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-polana-olive/30 bg-white focus:border-polana-lime focus:ring-2 focus:ring-polana-lime/20 outline-none transition-all text-polana-dark-green cursor-pointer"
                       >
-                        <option value="general">Zapytanie ogólne</option>
+                        <option value={GENERAL_CONTACT_SUBJECT}>Zapytanie ogólne</option>
                         {prices.map((service) => (
                           <option key={service.id} value={service.id}>
                             {service.name} — {formatPrice(service.price, service.currency)}

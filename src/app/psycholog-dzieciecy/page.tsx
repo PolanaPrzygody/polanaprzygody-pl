@@ -6,11 +6,13 @@ import {
   createServiceJsonLd,
   createServiceMetadata,
 } from "@/lib/seo";
+import { serviceContactSubjects } from "@/lib/contact";
 
 const path = "/psycholog-dzieciecy";
 
 const data: ServiceLandingData = {
   slug: "psycholog-dzieciecy",
+  subjectId: serviceContactSubjects.psycholog,
   eyebrow: "Psycholog dziecięcy",
   title: "Psycholog dziecięcy",
   titleAccent: "we Wrocławiu",

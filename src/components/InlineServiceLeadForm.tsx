@@ -20,6 +20,7 @@ interface FormStatus {
 interface InlineServiceLeadFormProps {
   id: string;
   serviceName: string;
+  subjectId: string;
   defaultMessage: string;
   successPath?: string;
 }
@@ -27,6 +28,7 @@ interface InlineServiceLeadFormProps {
 export function InlineServiceLeadForm({
   id,
   serviceName,
+  subjectId,
   defaultMessage,
   successPath,
 }: InlineServiceLeadFormProps) {
@@ -59,6 +61,7 @@ export function InlineServiceLeadForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          subject: subjectId,
           name: formData.name,
           email: formData.email,
           phone: formData.phone,

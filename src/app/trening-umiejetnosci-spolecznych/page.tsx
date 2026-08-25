@@ -6,11 +6,13 @@ import {
   createServiceJsonLd,
   createServiceMetadata,
 } from "@/lib/seo";
+import { serviceContactSubjects } from "@/lib/contact";
 
 const path = "/trening-umiejetnosci-spolecznych";
 
 const data: ServiceLandingData = {
   slug: "trening-umiejetnosci-spolecznych",
+  subjectId: serviceContactSubjects.tus,
   eyebrow: "Trening Umiejętności Społecznych",
   title: "TUS dla dzieci",
   titleAccent: "we Wrocławiu",

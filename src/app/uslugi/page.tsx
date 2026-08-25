@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { prices, formatPrice, PriceItem } from "@/data/prices";
+import { createContactHref, serviceContactSubjects } from "@/lib/contact";
 
 // Map service IDs to price IDs
 const servicePriceMap: Record<string, string[]> = {
@@ -317,11 +318,11 @@ export default function UslugiPage() {
                       </div>
 
                       <Button
-                        href={
-                          service.id === "tus"
-                            ? "/umow-sie#formularz-kontaktowy"
-                            : "/umow-sie"
-                        }
+                        href={createContactHref(
+                          serviceContactSubjects[
+                            service.id as keyof typeof serviceContactSubjects
+                          ],
+                        )}
                         variant="primary"
                       >
                         {service.ctaLabel || "Umów wizytę"}

@@ -6,6 +6,7 @@ import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
 import { formatPrice, getPricesByCategory, PriceItem } from "@/data/prices";
 import Link from "next/link";
+import { createContactHref } from "@/lib/contact";
 
 // Component for price card with hover button
 function PriceCard({ item }: { item: PriceItem }) {
@@ -26,11 +27,7 @@ function PriceCard({ item }: { item: PriceItem }) {
           {formatPrice(item.price, item.currency)}
         </div>
         <Link
-          href={
-            item.id === "tus"
-              ? "/umow-sie#formularz-kontaktowy"
-              : "/umow-sie"
-          }
+          href={createContactHref(item.id)}
           className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 bg-polana-dark-green text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-polana-olive whitespace-nowrap"
         >
           {item.id === "tus" ? "Zapisz się" : "Umów się"}

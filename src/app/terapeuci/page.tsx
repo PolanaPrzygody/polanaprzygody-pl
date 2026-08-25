@@ -5,6 +5,10 @@ import { Button } from "@/components/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import {
+  createContactHref,
+  therapistContactSubjects,
+} from "@/lib/contact";
 
 const therapists = [
   {
@@ -218,7 +222,14 @@ function TherapistCard({
                 </div>
               </div>
 
-              <Button href="/umow-sie" variant="primary">
+              <Button
+                href={createContactHref(
+                  therapistContactSubjects[
+                    therapist.id as keyof typeof therapistContactSubjects
+                  ],
+                )}
+                variant="primary"
+              >
                 Umów wizytę
               </Button>
             </div>

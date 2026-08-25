@@ -6,11 +6,13 @@ import {
   createServiceJsonLd,
   createServiceMetadata,
 } from "@/lib/seo";
+import { serviceContactSubjects } from "@/lib/contact";
 
 const path = "/integracja-sensoryczna";
 
 const data: ServiceLandingData = {
   slug: "integracja-sensoryczna",
+  subjectId: serviceContactSubjects["integracja-sensoryczna"],
   eyebrow: "Integracja sensoryczna",
   title: "Integracja sensoryczna dla dzieci",
   titleAccent: "we Wrocławiu",

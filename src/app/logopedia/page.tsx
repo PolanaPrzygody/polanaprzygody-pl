@@ -7,6 +7,7 @@ import { useState, useRef } from "react";
 import { formatPrice } from "@/data/prices";
 import { logopediaFaq } from "@/data/faqs";
 import { InlineServiceLeadForm } from "@/components/InlineServiceLeadForm";
+import { serviceContactSubjects } from "@/lib/contact";
 
 // ─── Contact Form (simplified: leave your number, we'll call) ────────────────
 interface LeadFormData {
@@ -52,6 +53,7 @@ function LeadForm({ id }: { id?: string }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          subject: serviceContactSubjects.logopedia,
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -626,6 +628,7 @@ export default function LogopediaLandingPage() {
             <InlineServiceLeadForm
               id="hero-form"
               serviceName="Logopedia"
+              subjectId={serviceContactSubjects.logopedia}
               defaultMessage="Proszę o kontakt w sprawie logopedii."
               successPath="/logopedia/dziekujemy"
             />
