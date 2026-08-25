@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { JsonLd, SITE_URL, createBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Umów wizytę",
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
     description:
       "Umów wizytę w Polanie Przygody. Logopedia i terapia SI we Wrocławiu. Tel: 790 512 258.",
     url: "https://polanaprzygody.pl/umow-sie",
+    siteName: "Polana Przygody",
+    locale: "pl_PL",
     type: "website",
     images: [
       {
@@ -37,10 +40,31 @@ export const metadata: Metadata = {
   },
 };
 
+const contactPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${SITE_URL}/umow-sie#webpage`,
+  url: `${SITE_URL}/umow-sie`,
+  name: "Umów wizytę w Polanie Przygody",
+  about: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "pl-PL",
+};
+
 export default function UmowSieLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={contactPageJsonLd} />
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Strona główna", path: "/" },
+          { name: "Umów wizytę", path: "/umow-sie" },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

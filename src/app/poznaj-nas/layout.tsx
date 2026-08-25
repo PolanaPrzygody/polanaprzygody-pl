@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { JsonLd, createBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Poznaj nas",
@@ -9,6 +10,8 @@ export const metadata: Metadata = {
     description:
       "Poznaj Polanę Przygody - Centrum Rozwoju Dziecka we Wrocławiu. Dowiedz się o naszej historii i zobacz nasze gabinety.",
     url: "https://polanaprzygody.pl/poznaj-nas",
+    siteName: "Polana Przygody",
+    locale: "pl_PL",
     type: "website",
     images: [
       {
@@ -36,5 +39,15 @@ export default function PoznajNasLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Strona główna", path: "/" },
+          { name: "Poznaj nas", path: "/poznaj-nas" },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

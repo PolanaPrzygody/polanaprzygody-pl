@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
+import { JsonLd, organizationJsonLd } from "@/lib/seo";
 
 const GA_MEASUREMENT_ID = "G-SBF32BY88T";
 
@@ -113,66 +114,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data for Local Business
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  "@id": "https://polanaprzygody.pl",
-  name: "Polana Przygody - Centrum Rozwoju Dziecka",
-  description:
-    "Centrum Rozwoju Dziecka we Wrocławiu oferujące profesjonalną logopedię, terapię integracji sensorycznej i TUS dla dzieci.",
-  url: "https://polanaprzygody.pl",
-  telephone: "+48790512258",
-  email: "info@polanaprzygody.pl",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "ul. Białowieska 69B",
-    addressLocality: "Wrocław",
-    postalCode: "54-234",
-    addressCountry: "PL",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "51.1079",
-    longitude: "17.0385",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "10:00",
-      closes: "14:00",
-    },
-  ],
-  image: "https://polanaprzygody.pl/images/gabinety/poczekalnia.png",
-  priceRange: "$$",
-  medicalSpecialty: ["Speech-Language Pathology", "Pediatric Therapy"],
-  availableService: [
-    {
-      "@type": "MedicalTherapy",
-      name: "Logopedia",
-      description: "Profesjonalna diagnoza i terapia zaburzeń mowy u dzieci",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Terapia Integracji Sensorycznej",
-      description: "Terapia SI wspierająca prawidłowy rozwój zmysłów i koordynacji",
-    },
-    {
-      "@type": "MedicalTherapy",
-      name: "Trening Umiejętności Społecznych (TUS)",
-      description: "Grupowe zajęcia rozwijające umiejętności społeczne dzieci",
-    },
-  ],
-  sameAs: ["https://www.instagram.com/polanaprzygody/"],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -193,10 +134,7 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={organizationJsonLd} />
       </head>
       <body className="font-body bg-polana-straw text-polana-dark-green antialiased">
         <Navigation />

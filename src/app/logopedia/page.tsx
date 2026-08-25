@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { formatPrice } from "@/data/prices";
+import { logopediaFaq } from "@/data/faqs";
 
 // ─── Contact Form (simplified: leave your number, we'll call) ────────────────
 interface LeadFormData {
@@ -610,6 +611,7 @@ const speechTherapists = [
 function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [ready, setReady] = useState(false);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -622,20 +624,39 @@ function HeroVideo() {
     <div className="relative w-[180px] lg:w-[220px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-black/30 ring-4 ring-polana-lime/20">
       <video
         ref={videoRef}
-        autoPlay
+        autoPlay={ready}
         loop
         muted
         playsInline
+        preload="none"
+        poster="/images/posters/polana-intro.webp"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/polana-intro.mp4" type="video/mp4" />
+        {ready && (
+          <source src="/polana-intro-audio-web.mp4" type="video/mp4" />
+        )}
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/30 via-transparent to-transparent pointer-events-none" />
-      <button
-        onClick={toggleMute}
-        className="absolute bottom-3 right-3 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors cursor-pointer z-10"
-        aria-label={isMuted ? "Włącz dźwięk" : "Wyłącz dźwięk"}
-      >
+      {!ready ? (
+        <button
+          type="button"
+          onClick={() => setReady(true)}
+          aria-label="Odtwórz film o Polanie Przygody"
+          className="absolute inset-0 z-10 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors cursor-pointer"
+        >
+          <span className="w-14 h-14 rounded-full bg-polana-lime text-polana-dark-green flex items-center justify-center shadow-xl">
+            <svg aria-hidden="true" className="w-6 h-6 ml-1" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={toggleMute}
+          className="absolute bottom-3 right-3 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors cursor-pointer z-10"
+          aria-label={isMuted ? "Włącz dźwięk" : "Wyłącz dźwięk"}
+        >
         {isMuted ? (
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
@@ -646,7 +667,8 @@ function HeroVideo() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
           </svg>
         )}
-      </button>
+        </button>
+      )}
     </div>
   );
 }
@@ -768,18 +790,13 @@ export default function LogopediaLandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-10">
           <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start">
             {/* Left: headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex-1"
-            >
+            <div className="flex-1">
               <span className="inline-block px-4 py-1.5 bg-polana-lime/20 text-polana-lime text-sm font-medium rounded-full mb-4">
-                Logopedia i neurologopedia dla dzieci we Wrocławiu
+                Diagnoza i terapia rozwoju mowy
               </span>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                Pomóż swojemu dziecku{" "}
-                <span className="text-polana-lime">mówić wyraźnie</span>
+                Logopeda i neurologopeda dla dzieci{" "}
+                <span className="text-polana-lime">we Wrocławiu</span>
               </h1>
               <p className="text-base md:text-lg text-polana-straw/80 mb-6 max-w-2xl leading-relaxed">
                 Doświadczeni logopedzi i neurologopedzi z pasją do pracy z
@@ -806,7 +823,7 @@ export default function LogopediaLandingPage() {
 
               {/* Therapist mini-profiles */}
               <TherapistMiniProfiles />
-            </motion.div>
+            </div>
 
             {/* Right: video */}
             <motion.div
@@ -1323,6 +1340,36 @@ export default function LogopediaLandingPage() {
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Frequently asked questions ── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-polana-dark-green mb-8">
+            Najczęstsze pytania o logopedię
+          </h2>
+          <div className="space-y-4">
+            {logopediaFaq.map((item) => (
+              <details
+                key={item.question}
+                className="group bg-polana-straw rounded-2xl p-6"
+              >
+                <summary className="cursor-pointer list-none font-semibold text-polana-dark-green flex items-start justify-between gap-4">
+                  <span>{item.question}</span>
+                  <span
+                    aria-hidden="true"
+                    className="text-2xl leading-none group-open:rotate-45 transition-transform"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="text-polana-dark-green/75 leading-relaxed mt-4 pr-8">
+                  {item.answer}
+                </p>
+              </details>
             ))}
           </div>
         </div>

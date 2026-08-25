@@ -12,9 +12,9 @@ export function Footer() {
               <h3 className="text-polana-lime text-2xl font-semibold">
                 Polana Przygody
               </h3>
-              <p className="text-polana-olive text-sm">Centrum Rozwoju Dziecka</p>
+              <p className="text-polana-straw/80 text-sm">Centrum Rozwoju Dziecka</p>
             </div>
-            <p className="text-polana-straw/70 text-sm leading-relaxed">
+            <p className="text-polana-straw/80 text-sm leading-relaxed">
               Wspieramy rozwój dzieci w przyjaznej, pełnej przygód atmosferze.
               Profesjonalna opieka logopedyczna i terapia integracji sensorycznej.
             </p>
@@ -179,23 +179,29 @@ export function Footer() {
                 Logopedia
               </Link>
               <Link
-                href="/uslugi#integracja-sensoryczna"
+                href="/integracja-sensoryczna"
                 className="px-4 py-1.5 rounded-full border border-polana-olive/30 text-sm text-polana-straw/80 hover:text-polana-lime hover:border-polana-lime/40 transition-colors"
               >
                 Integracja sensoryczna
               </Link>
               <Link
-                href="/uslugi#psycholog"
+                href="/psycholog-dzieciecy"
                 className="px-4 py-1.5 rounded-full border border-polana-olive/30 text-sm text-polana-straw/80 hover:text-polana-lime hover:border-polana-lime/40 transition-colors"
               >
                 Psycholog
+              </Link>
+              <Link
+                href="/trening-umiejetnosci-spolecznych"
+                className="px-4 py-1.5 rounded-full border border-polana-olive/30 text-sm text-polana-straw/80 hover:text-polana-lime hover:border-polana-lime/40 transition-colors"
+              >
+                TUS
               </Link>
             </nav>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-polana-olive/20 text-center text-sm text-polana-straw/50">
+        <div className="mt-12 pt-8 border-t border-polana-olive/20 text-center text-sm text-polana-straw/80">
           <p className="mb-2">© {new Date().getFullYear()} Polana Przygody. Wszystkie prawa zastrzeżone.</p>
           <Link
             href="/polityka-prywatnosci"
@@ -203,14 +209,14 @@ export function Footer() {
           >
             Polityka prywatności i regulamin serwisu
           </Link>
-          <span className="mx-2 text-polana-straw/30">|</span>
+          <span aria-hidden="true" className="mx-2 text-polana-straw/80">|</span>
           <Link
             href="/regulamin-swiadczenia-uslug"
             className="hover:text-polana-lime transition-colors"
           >
             Regulamin świadczenia usług
           </Link>
-          <p className="mt-2 text-xs text-polana-straw/40">Wersja {packageJson.version}</p>
+          <p className="mt-2 text-xs text-polana-straw/80">Wersja {packageJson.version}</p>
         </div>
       </div>
     </footer>

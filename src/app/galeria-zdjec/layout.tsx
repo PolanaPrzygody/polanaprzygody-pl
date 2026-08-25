@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { JsonLd, createBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Galeria zdjęć",
@@ -9,6 +10,8 @@ export const metadata: Metadata = {
     description:
       "Zobacz galerię zdjęć Polany Przygody - gabinety, sale SI i przestrzeń terapeutyczną dla dzieci.",
     url: "https://polanaprzygody.pl/galeria-zdjec",
+    siteName: "Polana Przygody",
+    locale: "pl_PL",
     type: "website",
     images: [
       {
@@ -36,5 +39,15 @@ export default function GaleriaZdjecLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Strona główna", path: "/" },
+          { name: "Galeria zdjęć", path: "/galeria-zdjec" },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

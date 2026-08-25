@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { JsonLd, SITE_URL, createBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Usługi - Logopedia, Terapia SI i TUS",
@@ -19,6 +20,8 @@ export const metadata: Metadata = {
     description:
       "Profesjonalna logopedia, terapia integracji sensorycznej i TUS dla dzieci we Wrocławiu.",
     url: "https://polanaprzygody.pl/uslugi",
+    siteName: "Polana Przygody",
+    locale: "pl_PL",
     type: "website",
     images: [
       {
@@ -41,10 +44,38 @@ export const metadata: Metadata = {
   },
 };
 
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Usługi Polany Przygody",
+  itemListElement: [
+    ["Logopedia i neurologopedia", "/logopedia"],
+    ["Integracja sensoryczna", "/integracja-sensoryczna"],
+    ["Psycholog dziecięcy", "/psycholog-dzieciecy"],
+    ["Trening Umiejętności Społecznych", "/trening-umiejetnosci-spolecznych"],
+  ].map(([name, path], index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name,
+    url: `${SITE_URL}${path}`,
+  })),
+};
+
 export default function UslugiLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={servicesJsonLd} />
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Strona główna", path: "/" },
+          { name: "Usługi", path: "/uslugi" },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

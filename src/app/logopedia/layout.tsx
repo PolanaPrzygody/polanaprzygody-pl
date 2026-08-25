@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import {
+  JsonLd,
+  SITE_URL,
+  createBreadcrumbJsonLd,
+  createFaqJsonLd,
+  createServiceJsonLd,
+} from "@/lib/seo";
+import { logopediaFaq } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "Logopeda i Neurologopeda dla dzieci | Polana Przygody - Wrocław",
+  title: "Logopeda i neurologopeda dla dzieci we Wrocławiu",
   description:
     "Profesjonalna terapia logopedyczna i neurologopedyczna dla dzieci we Wrocławiu. Doświadczeni logopedzi i neurologopedzi, diagnoza i terapia zaburzeń mowy. Umów wizytę już dziś!",
   keywords: [
@@ -22,6 +30,8 @@ export const metadata: Metadata = {
     description:
       "Diagnoza i terapia logopedyczna oraz neurologopedyczna dla dzieci we Wrocławiu.",
     url: "https://polanaprzygody.pl/logopedia",
+    siteName: "Polana Przygody",
+    locale: "pl_PL",
     type: "website",
     images: [
       {
@@ -39,10 +49,56 @@ export const metadata: Metadata = {
       "Diagnoza i terapia logopedyczna oraz neurologopedyczna dla dzieci we Wrocławiu.",
     images: ["/images/social/og-logopedia.jpg"],
   },
-  robots: {
-    index: false,
-    follow: false,
+  alternates: {
+    canonical: "https://polanaprzygody.pl/logopedia",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const serviceJsonLd = createServiceJsonLd({
+  path: "/logopedia",
+  name: "Logopedia i neurologopedia dla dzieci",
+  description:
+    "Diagnoza i terapia logopedyczna oraz neurologopedyczna dla dzieci we Wrocławiu.",
+  offers: [
+    { name: "Diagnoza logopedyczna - 2 spotkania", price: 300 },
+    { name: "Terapia logopedyczna", price: 200 },
+    { name: "Rediagnoza logopedyczna", price: 200 },
+    { name: "Wydanie opinii logopedycznej", price: 150 },
+  ],
+});
+
+const therapistsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Logopedzi i neurologopedzi w Polanie Przygody",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Person",
+        "@id": `${SITE_URL}/terapeuci#katarzyna-karwatka`,
+        name: "Katarzyna Karwatka",
+        jobTitle: "Logopeda",
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Person",
+        "@id": `${SITE_URL}/terapeuci#magdalena-wawrzycka`,
+        name: "Magdalena Wawrzycka",
+        jobTitle: "Logopeda, neurologopeda",
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+      },
+    },
+  ],
 };
 
 export default function LogopediaLayout({
@@ -50,5 +106,19 @@ export default function LogopediaLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd data={serviceJsonLd} />
+      <JsonLd data={therapistsJsonLd} />
+      <JsonLd data={createFaqJsonLd([...logopediaFaq])} />
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Strona główna", path: "/" },
+          { name: "Usługi", path: "/uslugi" },
+          { name: "Logopedia i neurologopedia", path: "/logopedia" },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

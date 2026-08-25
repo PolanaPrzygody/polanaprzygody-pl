@@ -30,12 +30,14 @@ function getServicePrices(serviceId: string): PriceItem[] {
 const services = [
   {
     id: "logopedia",
+    detailHref: "/logopedia",
     title: "Logopedia",
     description:
       "Profesjonalna diagnoza i terapia zaburzeń mowy. Pomagamy dzieciom w prawidłowym rozwoju komunikacji.",
     image: "/images/gabinety/gabinet-logopedy-1.png",
     imageAlt: "Gabinet logopedyczny w Polanie Przygody",
-    video: "/terapia-logopedyczna.mp4",
+    video: "/terapia-logopedyczna-web.mp4",
+    videoPoster: "/images/posters/terapia-logopedyczna.webp",
     videoTitle: "Jak wygląda terapia logopedyczna?",
     icon: (
       <path
@@ -63,12 +65,14 @@ const services = [
   },
   {
     id: "integracja-sensoryczna",
+    detailHref: "/integracja-sensoryczna",
     title: "Terapia Integracji Sensorycznej",
     description:
       "Wspieramy prawidłowy rozwój zmysłów i koordynacji. Pomagamy dzieciom w lepszym odbieraniu świata.",
     image: "/images/gabinety/sala-si.png",
     imageAlt: "Sala integracji sensorycznej z huśtawkami i sprzętem terapeutycznym",
-    video: "/co-to-jest-integracja.mp4",
+    video: "/co-to-jest-integracja-web.mp4",
+    videoPoster: "/images/posters/integracja-sensoryczna.webp",
     videoTitle: "Co to jest integracja sensoryczna?",
     icon: (
       <path
@@ -96,12 +100,14 @@ const services = [
   },
   {
     id: "tus",
+    detailHref: "/trening-umiejetnosci-spolecznych",
     title: "Trening Umiejętności Społecznych (TUS)",
     description:
       "Grupowe zajęcia rozwijające umiejętności potrzebne w relacjach, komunikacji i codziennych sytuacjach społecznych.",
     image: "/images/gabinety/gabinet-psychologa.png",
     imageAlt: "Gabinet, w którym odbywa się Trening Umiejętności Społecznych",
     video: null,
+    videoPoster: null,
     videoTitle: null,
     icon: (
       <path
@@ -128,12 +134,14 @@ const services = [
   },
   {
     id: "psycholog",
+    detailHref: "/psycholog-dzieciecy",
     title: "Psycholog",
     description:
       "Pomagamy dzieciom i młodzieży w trudnościach emocjonalnych, zachowaniu i relacjach. Pracujemy w podejściu systemowym i poznawczo-behawioralnym, z aktywnym udziałem rodziny.",
     image: "/images/gabinety/gabinet-psychologa.png",
     imageAlt: "Gabinet psychologa w Polanie Przygody",
     video: null,
+    videoPoster: null,
     videoTitle: null,
     icon: (
       <path
@@ -160,12 +168,14 @@ const services = [
   },
   {
     id: "konsultacje",
+    detailHref: "/psycholog-dzieciecy",
     title: "Konsultacje dla rodziców",
     description:
       "Wspieramy rodziców w codziennej pracy z dzieckiem. Razem tworzymy plan rozwoju.",
     image: "/images/gabinety/gabinet-psychologa.png",
     imageAlt: "Gabinet konsultacyjny - spokojne miejsce do rozmów",
     video: null,
+    videoPoster: null,
     videoTitle: null,
     icon: (
       <path
@@ -260,6 +270,12 @@ export default function UslugiPage() {
                       <p className="text-lg text-polana-dark-green/70 mb-8">
                         {service.description}
                       </p>
+                      <Link
+                        href={service.detailHref}
+                        className="inline-flex text-sm font-semibold text-polana-dark-green underline underline-offset-4 decoration-polana-olive hover:decoration-polana-lime mb-6"
+                      >
+                        Szczegóły usługi i najczęstsze pytania
+                      </Link>
                       <p className="text-sm text-polana-dark-green/60 mb-8">
                         Obowiązuje{" "}
                         <Link
@@ -389,7 +405,8 @@ export default function UslugiPage() {
                             <video
                               controls
                               playsInline
-                              poster={service.image}
+                              preload="none"
+                              poster={service.videoPoster || service.image}
                               className="absolute inset-0 w-full h-full object-cover"
                             >
                               <source src={service.video} type="video/mp4" />

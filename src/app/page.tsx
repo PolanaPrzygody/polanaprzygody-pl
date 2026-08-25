@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/Button";
+import { DeferredHeroVideo } from "@/components/DeferredHeroVideo";
 
 export default function Home() {
   return (
@@ -19,11 +20,7 @@ export default function Home() {
         <div className="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 lg:gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:py-20">
           {/* Left side - Logo and Content */}
           <div className="flex-1 text-center md:text-left order-2 md:order-1">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div>
               <Image
                 src="/logo-polana.svg"
                 alt="Polana Przygody"
@@ -32,57 +29,34 @@ export default function Home() {
                 className="w-48 sm:w-64 md:w-80 lg:w-[400px] h-auto mx-auto md:mx-0 mb-3 md:mb-6"
                 priority
               />
-              <p className="text-lg md:text-2xl text-polana-olive font-light mb-3 md:mb-4">
-                Centrum Rozwoju Dziecka
-              </p>
-            </motion.div>
+              <h1 className="text-lg md:text-2xl text-polana-olive font-light mb-3 md:mb-4">
+                Centrum Rozwoju Dziecka we Wrocławiu
+              </h1>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base md:text-xl text-polana-straw/80 max-w-xl mb-6 md:mb-10 leading-relaxed"
-            >
+            <p className="text-base md:text-xl text-polana-straw/80 max-w-xl mb-6 md:mb-10 leading-relaxed">
               Wspieramy rozwój Twojego dziecka w przyjaznej, pełnej przygód atmosferze.
               Profesjonalna logopedia i terapia integracji sensorycznej.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start items-center"
-            >
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start items-center">
               <Button href="/umow-sie" variant="primary" size="lg">
                 Umów wizytę
               </Button>
               <Button href="/poznaj-nas" variant="outline" size="lg" className="border-polana-straw text-polana-straw hover:bg-polana-straw hover:text-polana-dark-green">
                 Poznaj nas
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right side - Vertical Video */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="flex-shrink-0 order-1 md:order-2"
-          >
+          <div className="flex-shrink-0 order-1 md:order-2">
             <div className="relative w-[200px] sm:w-[260px] md:w-[300px] lg:w-[360px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-black/30 ring-4 ring-polana-lime/20">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src="/polana-intro.mp4" type="video/mp4" />
-              </video>
+              <DeferredHeroVideo />
               {/* Subtle overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-polana-dark-green/30 via-transparent to-transparent pointer-events-none" />
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator - hidden on mobile, shown on desktop */}
@@ -158,10 +132,11 @@ export default function Home() {
                 <video
                   controls
                   playsInline
-                  poster="/images/gabinety/poczekalnia.png"
+                  preload="none"
+                  poster="/images/posters/pierwsza-wizyta.webp"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/czego-mozesz-sie-spodziewac.mp4" type="video/mp4" />
+                  <source src="/czego-mozesz-sie-spodziewac-web.mp4" type="video/mp4" />
                 </video>
               </div>
             </motion.div>
@@ -191,6 +166,7 @@ export default function Home() {
             {[
               {
                 title: "Logopedia",
+                href: "/logopedia",
                 description:
                   "Profesjonalna diagnoza i terapia zaburzeń mowy. Pomagamy dzieciom w prawidłowym rozwoju komunikacji.",
                 icon: (
@@ -204,6 +180,7 @@ export default function Home() {
               },
               {
                 title: "Integracja Sensoryczna",
+                href: "/integracja-sensoryczna",
                 description:
                   "Terapia wspierająca prawidłowy rozwój zmysłów i koordynacji. Pomagamy dzieciom w lepszym odbieraniu świata.",
                 icon: (
@@ -217,6 +194,7 @@ export default function Home() {
               },
               {
                 title: "Trening Umiejętności Społecznych (TUS)",
+                href: "/trening-umiejetnosci-spolecznych",
                 description:
                   "Zajęcia w 6-osobowych grupach, prowadzone przez dwie terapeutki. Dwie grupy wiekowe spotykają się we wtorki.",
                 icon: (
@@ -229,9 +207,10 @@ export default function Home() {
                 ),
               },
               {
-                title: "Indywidualne podejście",
+                title: "Psycholog dziecięcy",
+                href: "/psycholog-dzieciecy",
                 description:
-                  "Każde dziecko jest wyjątkowe. Dopasowujemy terapię do indywidualnych potrzeb i możliwości.",
+                  "Konsultacje i diagnoza psychologiczna dzieci i młodzieży oraz wsparcie rodziców.",
                 icon: (
                   <path
                     strokeLinecap="round"
@@ -250,22 +229,27 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-8 shadow-lg shadow-polana-dark-green/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-polana-lime/20 rounded-xl flex items-center justify-center mb-6">
-                  <svg
-                    className="w-7 h-7 text-polana-dark-green"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {feature.icon}
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-polana-dark-green mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-polana-dark-green/70 leading-relaxed">
-                  {feature.description}
-                </p>
+                <Link href={feature.href} className="block h-full">
+                  <div className="w-14 h-14 bg-polana-lime/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg
+                      className="w-7 h-7 text-polana-dark-green"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      {feature.icon}
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-polana-dark-green mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-polana-dark-green/70 leading-relaxed">
+                    {feature.description}
+                  </p>
+                  <span className="inline-flex mt-4 text-sm font-medium text-polana-dark-green underline underline-offset-4 decoration-polana-olive">
+                    Dowiedz się więcej
+                  </span>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -321,8 +305,8 @@ export default function Home() {
               {
                 id: "magdalena-wawrzycka",
                 name: "Magdalena Wawrzycka",
-                role: "Logopeda",
-                experience: "14 lat doświadczenia",
+                role: "Logopeda, Neurologopeda",
+                experience: "Logopedia kliniczna i terapia miofunkcjonalna",
                 photo: "/images/terapeuci/magda.jpeg",
               },
             ].map((member, index) => (
