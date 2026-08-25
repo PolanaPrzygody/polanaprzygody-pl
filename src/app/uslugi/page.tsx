@@ -17,6 +17,7 @@ const servicePriceMap: Record<string, string[]> = {
     "rediagnoza-logopedyczna",
   ],
   "integracja-sensoryczna": ["diagnoza-si", "terapia-si"],
+  tus: ["tus"],
   psycholog: ["diagnoza-psychologiczna", "konsultacja-psychologa"],
 };
 
@@ -92,6 +93,38 @@ const services = [
       "Dzieci z trudnościami w koordynacji",
       "Dzieci z nadwrażliwością sensoryczną",
     ],
+  },
+  {
+    id: "tus",
+    title: "Trening Umiejętności Społecznych (TUS)",
+    description:
+      "Grupowe zajęcia rozwijające umiejętności potrzebne w relacjach, komunikacji i codziennych sytuacjach społecznych.",
+    image: "/images/gabinety/gabinet-psychologa.png",
+    imageAlt: "Gabinet, w którym odbywa się Trening Umiejętności Społecznych",
+    video: null,
+    videoTitle: null,
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656-.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+      />
+    ),
+    color: "bg-polana-lime/20",
+    features: [
+      "Zajęcia w 6-osobowych grupach",
+      "Zajęcia prowadzone przez dwie terapeutki",
+      "Nauka komunikacji i współpracy",
+      "Ćwiczenie rozpoznawania i wyrażania emocji",
+      "Rozwijanie umiejętności radzenia sobie w sytuacjach społecznych",
+      "Każde spotkanie trwa 60 minut",
+    ],
+    forWhom: [
+      "Dzieci przedszkolne (4–7 lat) — wtorki, godz. 16:00",
+      "Dzieci szkolne (8–12 lat) — wtorki, godz. 17:00",
+    ],
+    ctaLabel: "Zapisz się",
   },
   {
     id: "psycholog",
@@ -267,8 +300,15 @@ export default function UslugiPage() {
                         </ul>
                       </div>
 
-                      <Button href="/umow-sie" variant="primary">
-                        Umów wizytę
+                      <Button
+                        href={
+                          service.id === "tus"
+                            ? "/umow-sie#formularz-kontaktowy"
+                            : "/umow-sie"
+                        }
+                        variant="primary"
+                      >
+                        {service.ctaLabel || "Umów wizytę"}
                       </Button>
                     </div>
 

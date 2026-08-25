@@ -6,8 +6,10 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
+import { formatPrice, prices } from "@/data/prices";
 
 interface FormData {
+  subject: string;
   name: string;
   email: string;
   phone: string;
@@ -23,6 +25,7 @@ interface FormStatus {
 
 export default function UmowSiePage() {
   const [formData, setFormData] = useState<FormData>({
+    subject: "general",
     name: "",
     email: "",
     phone: "",
@@ -34,7 +37,9 @@ export default function UmowSiePage() {
   const [status, setStatus] = useState<FormStatus>({ type: "idle" });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value, type } = e.target;
     const newValue = type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
@@ -62,6 +67,7 @@ export default function UmowSiePage() {
           message: "Dziękujemy! Wiadomość została wysłana. Odezwiemy się wkrótce.",
         });
         setFormData({
+          subject: "general",
           name: "",
           email: "",
           phone: "",
@@ -95,9 +101,11 @@ export default function UmowSiePage() {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
             <motion.div
+              id="formularz-kontaktowy"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
+              className="scroll-mt-24"
             >
               <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-polana-dark-green/5">
                 <h2 className="text-2xl font-semibold text-polana-dark-green mb-6">
@@ -140,6 +148,30 @@ export default function UmowSiePage() {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Subject */}
+                    <div>
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-polana-dark-green mb-2"
+                      >
+                        Temat zapytania
+                      </label>
+                      <select
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-polana-olive/30 bg-white focus:border-polana-lime focus:ring-2 focus:ring-polana-lime/20 outline-none transition-all text-polana-dark-green cursor-pointer"
+                      >
+                        <option value="general">Zapytanie ogólne</option>
+                        {prices.map((service) => (
+                          <option key={service.id} value={service.id}>
+                            {service.name} — {formatPrice(service.price, service.currency)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
                     {/* Name */}
                     <div>
                       <label

@@ -26,10 +26,14 @@ function PriceCard({ item }: { item: PriceItem }) {
           {formatPrice(item.price, item.currency)}
         </div>
         <Link
-          href="/umow-sie"
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-polana-dark-green text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-polana-olive whitespace-nowrap"
+          href={
+            item.id === "tus"
+              ? "/umow-sie#formularz-kontaktowy"
+              : "/umow-sie"
+          }
+          className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 bg-polana-dark-green text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-polana-olive whitespace-nowrap"
         >
-          Umów się
+          {item.id === "tus" ? "Zapisz się" : "Umów się"}
         </Link>
       </div>
     </Card>
@@ -44,7 +48,7 @@ export default function CennikPage() {
     "Istnieje możliwość wystawienia faktury",
     "Odwołanie wizyty należy zgłosić minimum 24 godziny wcześniej",
     "Pierwsza wizyta obejmuje rozmowę z rodzicami i wstępną ocenę",
-    "Czas wizyty (dotyczy wszystkich rodzajów wizyt): 40 minut pracy z dzieckiem + 10 minut rozmowy z rodzicem (łącznie 50 minut)",
+    "Czas wizyty (z wyjątkiem TUS): 40 minut pracy z dzieckiem + 10 minut rozmowy z rodzicem (łącznie 50 minut). Zajęcia TUS trwają 60 minut",
     <>
       Obowiązuje{" "}
       <Link

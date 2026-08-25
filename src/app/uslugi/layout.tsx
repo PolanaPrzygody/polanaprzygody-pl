@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Usługi - Logopedia i Terapia SI",
+  title: "Usługi - Logopedia, Terapia SI i TUS",
   description:
-    "Profesjonalna logopedia i terapia integracji sensorycznej dla dzieci we Wrocławiu. Diagnoza, terapia wad wymowy, terapia SI, konsultacje dla rodziców.",
+    "Profesjonalna logopedia, terapia integracji sensorycznej i Trening Umiejętności Społecznych (TUS) dla dzieci we Wrocławiu.",
   keywords: [
     "logopedia Wrocław",
     "terapia integracji sensorycznej",
@@ -11,11 +11,13 @@ export const metadata: Metadata = {
     "wady wymowy",
     "opóźniony rozwój mowy",
     "diagnoza logopedyczna",
+    "Trening Umiejętności Społecznych Wrocław",
+    "TUS dla dzieci",
   ],
   openGraph: {
-    title: "Usługi - Logopedia i Terapia SI | Polana Przygody",
+    title: "Usługi - Logopedia, Terapia SI i TUS | Polana Przygody",
     description:
-      "Profesjonalna logopedia i terapia integracji sensorycznej dla dzieci we Wrocławiu.",
+      "Profesjonalna logopedia, terapia integracji sensorycznej i TUS dla dzieci we Wrocławiu.",
     images: ["/images/gabinety/gabinet-logopedy-1.png"],
   },
   alternates: {
@@ -30,4 +32,3 @@ export default function UslugiLayout({
 }) {
   return children;
 }
-

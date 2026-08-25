@@ -1,9 +1,11 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { formatPrice, getPriceById } from "@/data/prices";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface ContactFormData {
+  subject?: string;
   name: string;
   email: string;
   phone?: string;
@@ -13,6 +15,15 @@ interface ContactFormData {
 export async function POST(request: Request) {
   try {
     const body: ContactFormData = await request.json();
+    const selectedService = body.subject
+      ? getPriceById(body.subject)
+      : undefined;
+    const subject = selectedService
+      ? `${selectedService.name} — ${formatPrice(
+          selectedService.price,
+          selectedService.currency
+        )}`
+      : "Zapytanie ogólne";
 
     // Validate required fields
     if (!body.name || !body.email || !body.message) {
@@ -36,7 +47,7 @@ export async function POST(request: Request) {
       from: "Polana Przygody <kontakt@polanaprzygody.pl>",
       to: ["info@polanaprzygody.pl"],
       replyTo: body.email,
-      subject: `Nowa wiadomość od ${body.name}`,
+      subject: `Nowe zapytanie: ${subject} — ${body.name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -53,6 +64,11 @@ export async function POST(request: Request) {
             <div style="background: #EFF1C5; padding: 30px; border-radius: 0 0 16px 16px;">
               <div style="background: white; padding: 24px; border-radius: 12px; margin-bottom: 20px;">
                 <h2 style="margin: 0 0 20px 0; color: #2A5C47; font-size: 18px;">Dane kontaktowe</h2>
+
+                <p style="margin: 0 0 12px 0;">
+                  <strong style="color: #2A5C47;">Temat zapytania:</strong><br>
+                  <span style="color: #2A5C47;">${subject}</span>
+                </p>
                 
                 <p style="margin: 0 0 12px 0;">
                   <strong style="color: #2A5C47;">Imię i nazwisko:</strong><br>
@@ -92,6 +108,7 @@ export async function POST(request: Request) {
 Nowa wiadomość z formularza kontaktowego - Polana Przygody
 
 Dane kontaktowe:
+- Temat zapytania: ${subject}
 - Imię i nazwisko: ${body.name}
 - Email: ${body.email}
 ${body.phone ? `- Telefon: ${body.phone}` : ""}
@@ -124,4 +141,3 @@ Wiadomość wysłana z formularza na stronie polanaprzygody.pl
     );
   }
 }
-

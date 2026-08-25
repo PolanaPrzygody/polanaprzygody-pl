@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Polana Przygody",
   },
   description:
-    "Centrum Rozwoju Dziecka we Wrocławiu. Profesjonalna logopedia, terapia integracji sensorycznej SI i wsparcie rozwoju dzieci w przyjaznej atmosferze. Umów wizytę!",
+    "Centrum Rozwoju Dziecka we Wrocławiu. Profesjonalna logopedia, terapia integracji sensorycznej SI, TUS i wsparcie rozwoju dzieci w przyjaznej atmosferze. Umów wizytę!",
   keywords: [
     "logopeda Wrocław",
     "logopedia Wrocław",
@@ -35,6 +35,8 @@ export const metadata: Metadata = {
     "opóźniony rozwój mowy",
     "wady wymowy",
     "terapeuta SI",
+    "Trening Umiejętności Społecznych Wrocław",
+    "TUS dla dzieci",
     "logopeda dla dzieci",
     "rehabilitacja dzieci Wrocław",
     "Białowieska Wrocław",
@@ -98,7 +100,7 @@ const jsonLd = {
   "@id": "https://polanaprzygody.pl",
   name: "Polana Przygody - Centrum Rozwoju Dziecka",
   description:
-    "Centrum Rozwoju Dziecka we Wrocławiu oferujące profesjonalną logopedię i terapię integracji sensorycznej dla dzieci.",
+    "Centrum Rozwoju Dziecka we Wrocławiu oferujące profesjonalną logopedię, terapię integracji sensorycznej i TUS dla dzieci.",
   url: "https://polanaprzygody.pl",
   telephone: "+48790512258",
   email: "info@polanaprzygody.pl",
@@ -142,6 +144,11 @@ const jsonLd = {
       name: "Terapia Integracji Sensorycznej",
       description: "Terapia SI wspierająca prawidłowy rozwój zmysłów i koordynacji",
     },
+    {
+      "@type": "MedicalTherapy",
+      name: "Trening Umiejętności Społecznych (TUS)",
+      description: "Grupowe zajęcia rozwijające umiejętności społeczne dzieci",
+    },
   ],
   sameAs: ["https://www.instagram.com/polanaprzygody/"],
 };
@@ -180,4 +187,3 @@ export default function RootLayout({
     </html>
   );
 }
-

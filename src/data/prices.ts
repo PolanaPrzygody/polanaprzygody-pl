@@ -63,6 +63,14 @@ export const prices: PriceItem[] = [
     category: "terapia",
   },
   {
+    id: "tus",
+    name: "Trening Umiejętności Społecznych (TUS)",
+    price: 120,
+    currency: "zł",
+    description: "60 minut, zajęcia grupowe",
+    category: "terapia",
+  },
+  {
     id: "konsultacja-psychologa",
     name: "Konsultacja psychologa",
     price: 220,
