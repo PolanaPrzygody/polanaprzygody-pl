@@ -10,8 +10,10 @@ import {
 const path = "/trening-umiejetnosci-spolecznych";
 
 const data: ServiceLandingData = {
+  slug: "trening-umiejetnosci-spolecznych",
   eyebrow: "Trening Umiejętności Społecznych",
-  title: "TUS dla dzieci we Wrocławiu",
+  title: "TUS dla dzieci",
+  titleAccent: "we Wrocławiu",
   lead:
     "Trening Umiejętności Społecznych w Polanie Przygody to 60-minutowe zajęcia prowadzone przez dwie terapeutki w grupach do sześciu osób. Prowadzimy grupę przedszkolną 4-7 lat i szkolną 8-12 lat.",
   image: "/images/gabinety/galeria/terapeutki.jpg",
@@ -38,6 +40,13 @@ const data: ServiceLandingData = {
     "Rozpoznawanie, nazywanie i wyrażanie emocji.",
     "Reagowanie na nieporozumienia oraz sytuacje trudne.",
     "Budowanie pewności w kontaktach z rówieśnikami.",
+  ],
+  prices: [
+    {
+      name: "Trening Umiejętności Społecznych",
+      value: "120 zł",
+      description: "60 minut zajęć w grupie do sześciu dzieci, prowadzonej przez dwie terapeutki.",
+    },
   ],
   process: [
     {

@@ -63,7 +63,7 @@ export function CookieConsent() {
                   Kontynuując przeglądanie, zgadzasz się na ich użycie.{" "}
                   <Link
                     href="/polityka-prywatnosci"
-                    className="text-polana-lime hover:underline"
+                    className="text-polana-lime underline underline-offset-2"
                   >
                     Polityka prywatności
                   </Link>

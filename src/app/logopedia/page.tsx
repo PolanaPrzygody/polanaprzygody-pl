@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 import { formatPrice } from "@/data/prices";
 import { logopediaFaq } from "@/data/faqs";
+import { InlineServiceLeadForm } from "@/components/InlineServiceLeadForm";
 
 // ─── Contact Form (simplified: leave your number, we'll call) ────────────────
 interface LeadFormData {
@@ -317,228 +318,6 @@ function LeadForm({ id }: { id?: string }) {
   );
 }
 
-// ─── Inline Lead Form (horizontal, for hero section) ─────────────────────────
-function InlineLeadForm({ id }: { id?: string }) {
-  const [formData, setFormData] = useState<LeadFormData>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    acceptedTerms: false,
-    acceptedServiceTerms: false,
-  });
-  const [status, setStatus] = useState<FormStatus>({ type: "idle" });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value, type } = e.target;
-    const newValue =
-      type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
-    setFormData((prev) => ({ ...prev, [name]: newValue }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus({ type: "loading" });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: `[Landing: Logopedia]\nTelefon: ${formData.phone}\n${formData.message ? `Wiadomość: ${formData.message}` : "Proszę o kontakt w sprawie logopedii."}`,
-          acceptedTerms: formData.acceptedTerms,
-          acceptedServiceTerms: formData.acceptedServiceTerms,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        window.location.href = "/logopedia/dziekujemy";
-      } else {
-        setStatus({
-          type: "error",
-          message: data.error || "Wystąpił błąd. Spróbuj ponownie.",
-        });
-      }
-    } catch {
-      setStatus({
-        type: "error",
-        message: "Wystąpił błąd. Spróbuj ponownie.",
-      });
-    }
-  };
-
-  if (status.type === "success") {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center"
-      >
-        <div className="flex items-center justify-center gap-3">
-          <div className="w-10 h-10 bg-polana-lime/20 rounded-full flex items-center justify-center">
-            <svg
-              className="w-5 h-5 text-polana-lime"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-          <div className="text-left">
-            <h4 className="text-lg font-semibold text-white">Dziękujemy!</h4>
-            <p className="text-polana-straw/70 text-sm">{status.message}</p>
-          </div>
-        </div>
-      </motion.div>
-    );
-  }
-
-  return (
-    <div id={id} className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 md:p-6">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-8 h-8 bg-polana-lime/20 rounded-full flex items-center justify-center flex-shrink-0">
-          <svg
-            className="w-4 h-4 text-polana-lime"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-            />
-          </svg>
-        </div>
-        <div>
-          <h3 className="text-lg font-bold text-white">
-            Zostaw kontakt — zadzwonimy, aby umówić szczegóły
-          </h3>
-        </div>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        {/* Fields row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-          <input
-            type="text"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 focus:border-polana-lime focus:ring-2 focus:ring-polana-lime/20 outline-none transition-all text-white placeholder:text-polana-straw/40"
-            placeholder="Imię *"
-          />
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 focus:border-polana-lime focus:ring-2 focus:ring-polana-lime/20 outline-none transition-all text-white placeholder:text-polana-straw/40"
-            placeholder="Email *"
-          />
-          <input
-            type="tel"
-            name="phone"
-            required
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 focus:border-polana-lime focus:ring-2 focus:ring-polana-lime/20 outline-none transition-all text-white placeholder:text-polana-straw/40"
-            placeholder="Telefon *"
-          />
-          <input
-            type="text"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 focus:border-polana-lime focus:ring-2 focus:ring-polana-lime/20 outline-none transition-all text-white placeholder:text-polana-straw/40"
-            placeholder="Wiek dziecka (opcjonalnie)"
-          />
-        </div>
-
-        {/* Checkboxes + submit row */}
-        <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-          <div className="flex-1 flex flex-col sm:flex-row gap-x-6 gap-y-2">
-            <label className="flex items-start gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                name="acceptedTerms"
-                checked={formData.acceptedTerms}
-                onChange={handleChange}
-                required
-                className="mt-0.5 w-4 h-4 text-polana-lime bg-white/10 border-white/30 rounded focus:ring-polana-lime focus:ring-2 cursor-pointer"
-              />
-              <span className="text-xs text-polana-straw/50">
-                Akceptuję{" "}
-                <Link
-                  href="/polityka-prywatnosci"
-                  className="underline hover:text-polana-straw transition-colors"
-                  target="_blank"
-                >
-                  Politykę prywatności
-                </Link>{" "}
-                *
-              </span>
-            </label>
-            <label className="flex items-start gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                name="acceptedServiceTerms"
-                checked={formData.acceptedServiceTerms}
-                onChange={handleChange}
-                required
-                className="mt-0.5 w-4 h-4 text-polana-lime bg-white/10 border-white/30 rounded focus:ring-polana-lime focus:ring-2 cursor-pointer"
-              />
-              <span className="text-xs text-polana-straw/50">
-                Akceptuję{" "}
-                <Link
-                  href="/regulamin-swiadczenia-uslug"
-                  className="underline hover:text-polana-straw transition-colors"
-                  target="_blank"
-                >
-                  regulamin usług
-                </Link>{" "}
-                *
-              </span>
-            </label>
-          </div>
-
-          {status.type === "error" && (
-            <p className="text-red-300 text-sm">{status.message}</p>
-          )}
-
-          <button
-            type="submit"
-            disabled={
-              status.type === "loading" ||
-              !formData.acceptedTerms ||
-              !formData.acceptedServiceTerms
-            }
-            className="px-8 py-3 bg-polana-lime text-polana-dark-green rounded-xl font-semibold text-base hover:bg-polana-lime/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap flex-shrink-0"
-          >
-            {status.type === "loading" ? "Wysyłanie..." : "Zadzwońcie do mnie"}
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-}
-
 // ─── Speech therapy prices ───────────────────────────────────────────────────
 const logoPrices = [
   {
@@ -844,7 +623,12 @@ export default function LogopediaLandingPage() {
             className="mt-8"
             ref={formRef}
           >
-            <InlineLeadForm id="hero-form" />
+            <InlineServiceLeadForm
+              id="hero-form"
+              serviceName="Logopedia"
+              defaultMessage="Proszę o kontakt w sprawie logopedii."
+              successPath="/logopedia/dziekujemy"
+            />
           </motion.div>
 
           {/* Scroll down button */}

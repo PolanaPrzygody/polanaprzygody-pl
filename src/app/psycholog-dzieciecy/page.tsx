@@ -10,8 +10,10 @@ import {
 const path = "/psycholog-dzieciecy";
 
 const data: ServiceLandingData = {
+  slug: "psycholog-dzieciecy",
   eyebrow: "Psycholog dziecięcy",
-  title: "Psycholog dziecięcy we Wrocławiu",
+  title: "Psycholog dziecięcy",
+  titleAccent: "we Wrocławiu",
   lead:
     "Oferujemy konsultacje i diagnozę psychologiczną dzieci i młodzieży oraz wsparcie rodziców. Pracujemy w podejściu systemowym i poznawczo-behawioralnym, uwzględniając sytuację dziecka, rodziny i szkoły.",
   image: "/images/gabinety/galeria/gabinet-psychologa.jpg",
@@ -39,6 +41,18 @@ const data: ServiceLandingData = {
     "Praca nad relacjami i komunikacją w rodzinie.",
     "Psychoedukacja oraz zalecenia dla rodziców.",
     "Współpraca z rodziną i, gdy jest potrzebna, ze szkołą.",
+  ],
+  prices: [
+    {
+      name: "Konsultacja psychologiczna",
+      value: "220 zł",
+      description: "Spotkanie dla dziecka, nastolatka lub rodzica.",
+    },
+    {
+      name: "Diagnoza psychologiczna",
+      value: "700–1000 zł",
+      description: "Cena zależy od zakresu diagnozy i liczby potrzebnych spotkań.",
+    },
   ],
   process: [
     {

@@ -10,8 +10,10 @@ import {
 const path = "/integracja-sensoryczna";
 
 const data: ServiceLandingData = {
+  slug: "integracja-sensoryczna",
   eyebrow: "Integracja sensoryczna",
-  title: "Integracja sensoryczna dla dzieci we Wrocławiu",
+  title: "Integracja sensoryczna dla dzieci",
+  titleAccent: "we Wrocławiu",
   lead:
     "W Polanie Przygody prowadzimy diagnozę procesów integracji sensorycznej i indywidualną terapię SI. Zajęcia odbywają się w wyposażonej sali przy ul. Białowieskiej 69B we Wrocławiu.",
   image: "/images/gabinety/galeria/sala-si-4.jpg",
@@ -38,6 +40,18 @@ const data: ServiceLandingData = {
     "Omówienie wyników i zaleceń dla rodziców.",
     "Ćwiczenia wykorzystujące ruch, równowagę, propriocepcję i bodźce dotykowe.",
     "Indywidualny plan zajęć dopasowany do potrzeb dziecka.",
+  ],
+  prices: [
+    {
+      name: "Diagnoza integracji sensorycznej",
+      value: "750 zł",
+      description: "Cztery spotkania diagnostyczne wraz z omówieniem wyników.",
+    },
+    {
+      name: "Terapia integracji sensorycznej",
+      value: "200 zł",
+      description: "Jedno indywidualne spotkanie terapeutyczne.",
+    },
   ],
   process: [
     {
