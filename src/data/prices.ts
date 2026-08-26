@@ -14,7 +14,8 @@ export const prices: PriceItem[] = [
     name: "Diagnoza integracji sensorycznej",
     price: 750,
     currency: "zł",
-    description: "4 spotkania",
+    description:
+      "4 spotkania: wywiad z rodzicem, dwa spotkania z dzieckiem, omówienie diagnozy z rodzicem",
     category: "diagnoza",
   },
   {
