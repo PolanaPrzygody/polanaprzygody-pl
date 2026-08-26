@@ -42,9 +42,14 @@ do opisu diagnozy logopedycznej.
 - Treści marketingowe: błędna deklaracja formy płatności wprowadza klientów w błąd —
   lista musi odpowiadać temu, co terminal w gabinecie faktycznie obsługuje.
 - `.ai/agentic.config.json` nie istnieje w repozytorium; użyto domyślnych ustawień
-  (base `main`, tracker GitHub, runs `.ai/runs`). Bramka walidacyjna: `yarn lint` + `yarn build`.
-- Repozytorium nie ma frameworka testowego — weryfikacja opiera się na lint/build,
-  przeglądzie diffu i grepie kontrolnym.
+  (base `main`, tracker GitHub, runs `.ai/runs`).
+- `yarn lint` nie działa w tym repozytorium — brak jakiejkolwiek konfiguracji ESLint,
+  więc `next lint` wchodzi w interaktywny kreator. Stan zastany na `main`, nie efekt tej
+  zmiany. Bramka walidacyjna: `npx tsc --noEmit` + `yarn build`.
+- `yarn build` wymaga `RESEND_API_KEY` (trasa `/api/contact` tworzy klienta Resend na
+  poziomie modułu). Stan zastany; build uruchamiany z atrapą klucza.
+- Repozytorium nie ma frameworka testowego — weryfikacja opiera się na typecheck/build,
+  przeglądzie diffu i grepie po wyrenderowanym HTML-u z `.next/server/app/*.html`.
 
 ## Progress
 
@@ -58,9 +63,9 @@ do opisu diagnozy logopedycznej.
 
 ### Phase 2: Opis diagnozy SI
 
-- [ ] 2.1 Rozbij opis 4 spotkań w `prices.ts`
-- [ ] 2.2 Rozbij opis 4 spotkań na landingu integracji sensorycznej (cennik, zakres, proces, FAQ)
+- [x] 2.1 Rozbij opis 4 spotkań w `prices.ts` — 5ca7da1
+- [x] 2.2 Rozbij opis 4 spotkań na landingu integracji sensorycznej (cennik, proces, FAQ) — 5ca7da1
 
 ### Phase 3: Walidacja
 
-- [ ] 3.1 Pełna bramka walidacyjna (`yarn lint`, `yarn build`) + przegląd diffu
+- [x] 3.1 Pełna bramka walidacyjna (`tsc --noEmit`, `yarn build`) + przegląd diffu — 5ca7da1
