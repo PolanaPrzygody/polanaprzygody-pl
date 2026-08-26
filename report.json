@@ -1,0 +1,82 @@
+[
+  {
+    "name": "01-cennik-desktop-diagnostyka",
+    "path": "/cennik",
+    "viewport": "1440x1400",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/01-cennik-desktop-diagnostyka.png"
+  },
+  {
+    "name": "02-cennik-mobile-diagnostyka",
+    "path": "/cennik",
+    "viewport": "390x900",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/02-cennik-mobile-diagnostyka.png"
+  },
+  {
+    "name": "03-uslugi-desktop-cennik-logopedia",
+    "path": "/uslugi",
+    "viewport": "1440x1400",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/03-uslugi-desktop-cennik-logopedia.png"
+  },
+  {
+    "name": "04-uslugi-mobile-cennik-logopedia",
+    "path": "/uslugi",
+    "viewport": "390x900",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/04-uslugi-mobile-cennik-logopedia.png"
+  },
+  {
+    "name": "05-logopedia-desktop-cennik",
+    "path": "/logopedia",
+    "viewport": "1440x1400",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/05-logopedia-desktop-cennik.png"
+  },
+  {
+    "name": "06-logopedia-mobile-cennik",
+    "path": "/logopedia",
+    "viewport": "390x900",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": true,
+    "ok": false,
+    "file": "/tmp/pp-qa/shots/06-logopedia-mobile-cennik.png"
+  },
+  {
+    "name": "07-logopedia-desktop-faq",
+    "path": "/logopedia",
+    "viewport": "1440x1400",
+    "hasNote": true,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/07-logopedia-desktop-faq.png"
+  },
+  {
+    "name": "08-umow-sie-subject-list",
+    "path": "/umow-sie",
+    "viewport": "1440x1400",
+    "hasNote": false,
+    "hasStale": false,
+    "overflow": false,
+    "ok": true,
+    "file": "/tmp/pp-qa/shots/08-umow-sie-subject-list.png"
+  }
+]
