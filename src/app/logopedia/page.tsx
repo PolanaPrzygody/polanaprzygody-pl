@@ -322,12 +322,19 @@ function LeadForm({ id }: { id?: string }) {
 }
 
 // ─── Speech therapy prices ───────────────────────────────────────────────────
-const logoPrices = [
+const logoPrices: Array<{
+  name: string;
+  price: number;
+  currency: string;
+  description: string;
+  note?: string;
+}> = [
   {
     name: "Diagnoza logopedyczna",
     price: 300,
     currency: "zł",
     description: "2 spotkania: 1 z rodzicem, drugie z dzieckiem",
+    note: "Wariant z pisemnym raportem z diagnozy (opinia logopedyczna): dodatkowo płatny 150 zł",
   },
   {
     name: "Terapia logopedyczna",
@@ -340,12 +347,6 @@ const logoPrices = [
     price: 200,
     currency: "zł",
     description: "Kontrolna ocena postępów",
-  },
-  {
-    name: "Wydanie opinii logopedycznej",
-    price: 150,
-    currency: "zł",
-    description: "Usługa dodatkowo płatna",
   },
 ];
 
@@ -982,6 +983,11 @@ export default function LogopediaLandingPage() {
                   <p className="text-polana-straw/50 text-sm">
                     {item.description}
                   </p>
+                  {item.note && (
+                    <p className="text-polana-straw/70 text-sm mt-2 bg-white/10 rounded-lg px-3 py-2">
+                      {item.note}
+                    </p>
+                  )}
                 </div>
                 <div className="text-2xl font-bold text-polana-lime whitespace-nowrap">
                   {formatPrice(item.price, item.currency)}
