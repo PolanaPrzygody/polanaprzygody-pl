@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { InlineServiceLeadForm } from "@/components/InlineServiceLeadForm";
+import { paymentMethodsSentence } from "@/data/payments";
 
 export interface ServiceLandingData {
   slug: string;
@@ -180,7 +181,7 @@ export function ServiceLandingPage({ data }: { data: ServiceLandingData }) {
             ))}
           </div>
           <p className="text-center text-polana-straw/80 text-sm mt-8">
-            Płatność gotówką lub przelewem. Możliwość wystawienia faktury.
+            {paymentMethodsSentence}. Możliwość wystawienia faktury.
           </p>
         </div>
       </section>

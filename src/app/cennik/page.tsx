@@ -5,6 +5,7 @@ import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { motion } from "framer-motion";
 import { formatPrice, getPricesByCategory, PriceItem } from "@/data/prices";
+import { paymentMethodsSentence } from "@/data/payments";
 import Link from "next/link";
 import { createContactHref } from "@/lib/contact";
 
@@ -41,7 +42,7 @@ export default function CennikPage() {
   const diagnozy = getPricesByCategory("diagnoza");
   const terapie = getPricesByCategory("terapia");
   const infoItems = [
-    "Płatność gotówką lub przelewem",
+    paymentMethodsSentence,
     "Istnieje możliwość wystawienia faktury",
     "Odwołanie wizyty należy zgłosić minimum 24 godziny wcześniej",
     "Pierwsza wizyta obejmuje rozmowę z rodzicami i wstępną ocenę",
