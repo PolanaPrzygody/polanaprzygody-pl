@@ -55,6 +55,15 @@ serwisu”) — zostaje bez zmian.
   wyprowadzone z repozytorium i poprzedniego runu (`.ai/runs/2026-08-26-platnosci-i-opis-diagnozy-si.md`,
   PR #1): `baseBranch=main`, `runsDir=.ai/runs`, tracker `github`,
   `validation.commands=["yarn lint","yarn build"]`. Udokumentowane w PR.
+- **`yarn lint` nie jest użyteczną bramką** — repozytorium nie ma commitowanej konfiguracji
+  ESLint, więc `next lint` wchodzi w interaktywny kreator i kończy się kodem 1 niezależnie
+  od zmian. Stan zastany, nienaprawiany w tym runie (dodanie `.eslintrc.json` to osobna
+  zmiana infrastrukturalna). Faktyczną bramką jest `yarn build`, które wykonuje też
+  sprawdzenie typów i prerender wszystkich stron.
+- **`yarn build` wymaga `RESEND_API_KEY`** — `/api/contact` instancjonuje klienta Resend
+  w czasie zbierania danych stron. Do lokalnej weryfikacji build uruchamiany jest z atrapą
+  klucza (`RESEND_API_KEY=re_dummy_build_key`); żaden prawdziwy sekret nie jest używany
+  ani zapisywany.
 - **Brak frameworka testowego** — repozytorium nie ma jakiegokolwiek runnera testów
   (`package.json`: `dev/build/start/lint/indexnow`). Zasada „każda zmiana kodu ma test” jest
   niewykonalna bez wprowadzenia całego toolingu, co wykracza poza brief. Weryfikacja opiera
@@ -72,9 +81,9 @@ serwisu”) — zostaje bez zmian.
 
 ### Phase 1: Model danych i cennik
 
-- [ ] 1.1 Dodać pole `note` do `PriceItem`, usunąć pozycję `opinia-logopedyczna`, dopisać wariant raportu przy `diagnoza-logopedyczna`
-- [ ] 1.2 Wyrenderować `note` w `PriceCard` na `/cennik`
-- [ ] 1.3 Uwzględnić `note` w JSON-LD `OfferCatalog` na `/cennik`
+- [x] 1.1 Dodać pole `note` do `PriceItem`, usunąć pozycję `opinia-logopedyczna`, dopisać wariant raportu przy `diagnoza-logopedyczna` — c759365
+- [x] 1.2 Wyrenderować `note` w `PriceCard` na `/cennik` — c759365
+- [x] 1.3 Uwzględnić `note` w JSON-LD `OfferCatalog` na `/cennik` — c759365
 
 ### Phase 2: Powierzchnie logopedii i usług
 
