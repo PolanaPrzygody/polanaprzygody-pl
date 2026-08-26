@@ -5,6 +5,8 @@ export interface PriceItem {
   price: number | string;
   currency: string;
   description?: string;
+  /** Optional paid variant or add-on shown next to the base price. */
+  note?: string;
   category: "diagnoza" | "terapia";
 }
 
@@ -24,6 +26,7 @@ export const prices: PriceItem[] = [
     price: 300,
     currency: "zł",
     description: "2 spotkania: 1 z rodzicem, drugie z dzieckiem",
+    note: "Wariant z pisemnym raportem z diagnozy (opinia logopedyczna): dodatkowo płatny 150 zł",
     category: "diagnoza",
   },
   {
@@ -32,14 +35,6 @@ export const prices: PriceItem[] = [
     price: "700-1000",
     currency: "zł",
     description: "w zależności od zakresu diagnozy i ilości spotkań",
-    category: "diagnoza",
-  },
-  {
-    id: "opinia-logopedyczna",
-    name: "Wydanie opinii logopedycznej",
-    price: 150,
-    currency: "zł",
-    description: "usługa dodatkowo płatna",
     category: "diagnoza",
   },
   {

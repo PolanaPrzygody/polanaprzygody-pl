@@ -22,6 +22,11 @@ function PriceCard({ item }: { item: PriceItem }) {
             {item.description}
           </p>
         )}
+        {item.note && (
+          <p className="text-polana-dark-green/70 text-sm mt-2 bg-polana-violet/15 rounded-lg px-3 py-2">
+            {item.note}
+          </p>
+        )}
       </div>
       <div className="flex items-center gap-4">
         <div className="text-2xl font-bold text-polana-dark-green whitespace-nowrap">
