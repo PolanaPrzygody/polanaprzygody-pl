@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { formatPrice } from "@/data/prices";
+import { paymentMethodsSentence } from "@/data/payments";
 import { logopediaFaq } from "@/data/faqs";
 import { InlineServiceLeadForm } from "@/components/InlineServiceLeadForm";
 import { serviceContactSubjects } from "@/lib/contact";
@@ -995,7 +996,7 @@ export default function LogopediaLandingPage() {
             viewport={{ once: true }}
             className="text-center text-polana-straw/40 text-sm mt-8"
           >
-            Płatność gotówką lub przelewem. Możliwość wystawienia faktury.
+            {paymentMethodsSentence}. Możliwość wystawienia faktury.
           </motion.p>
         </div>
       </section>
