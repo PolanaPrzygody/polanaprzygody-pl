@@ -20,10 +20,11 @@ do opisu diagnozy logopedycznej.
   (integracja sensoryczna, psycholog dziecięcy, TUS).
 - `src/app/logopedia/page.tsx` — stopka cennika.
 - `src/app/integracja-sensoryczna/page.tsx` — opis diagnozy SI (cennik, zakres, proces, FAQ).
-- `src/app/regulamin-swiadczenia-uslug/page.tsx` — §5 Płatności za usługi.
 
 ## Non-goals
 
+- **Regulamin świadczenia usług pozostaje nietknięty** — na wyraźne polecenie użytkownika
+  („Regulaminu nie zmieniaj”) zmiana w §5 została wycofana.
 - Żadnej integracji płatniczej ani zmian w formularzach/API.
 - Brak zmian w cenach (kwoty pozostają bez zmian).
 - Brak nowych sekcji FAQ poza doprecyzowaniem istniejącej odpowiedzi o diagnozie SI.
@@ -51,9 +52,9 @@ do opisu diagnozy logopedycznej.
 
 ### Phase 1: Formy płatności
 
-- [ ] 1.1 Dodaj współdzieloną stałą z formami płatności
-- [ ] 1.2 Podepnij ją w cenniku, na landingach usług i w logopedii
-- [ ] 1.3 Uzupełnij §5 regulaminu o akceptowane formy płatności
+- [x] 1.1 Dodaj współdzieloną stałą z formami płatności — c7779e3
+- [x] 1.2 Podepnij ją w cenniku, na landingach usług i w logopedii — c7779e3
+- [x] 1.3 Uzupełnij §5 regulaminu o akceptowane formy płatności — WYCOFANE na polecenie użytkownika
 
 ### Phase 2: Opis diagnozy SI
 
