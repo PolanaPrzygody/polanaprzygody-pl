@@ -77,6 +77,8 @@ serwisu”) — zostaje bez zmian.
 
 ## Progress
 
+PR: #2
+
 > Convention: `- [ ]` pending, `- [x]` done. Append ` — <commit sha>` when a step lands. Do not rename step titles.
 
 ### Phase 1: Model danych i cennik
@@ -87,12 +89,12 @@ serwisu”) — zostaje bez zmian.
 
 ### Phase 2: Powierzchnie logopedii i usług
 
-- [ ] 2.1 Zaktualizować `logoPrices` i render cennika na `/logopedia`
-- [ ] 2.2 Zaktualizować JSON-LD `Service.offers` w `src/app/logopedia/layout.tsx`
-- [ ] 2.3 Usunąć `opinia-logopedyczna` z `servicePriceMap` i wyrenderować `note` na `/uslugi`
+- [x] 2.1 Zaktualizować `logoPrices` i render cennika na `/logopedia` — 1725993
+- [x] 2.2 Zaktualizować JSON-LD `Service.offers` w `src/app/logopedia/layout.tsx` — 1725993
+- [x] 2.3 Usunąć `opinia-logopedyczna` z `servicePriceMap` i wyrenderować `note` na `/uslugi` — 1725993
 
 ### Phase 3: FAQ i bramka walidacyjna
 
-- [ ] 3.1 Rozszerzyć odpowiedź FAQ o dopłatę za pisemny raport
-- [ ] 3.2 Przejść pełną bramkę walidacyjną (`yarn lint`, `yarn build`)
-- [ ] 3.3 QA w przeglądarce ze zrzutami ekranu `/cennik`, `/uslugi`, `/logopedia`
+- [x] 3.1 Rozszerzyć odpowiedź FAQ o dopłatę za pisemny raport — fb0b13e
+- [x] 3.2 Przejść pełną bramkę walidacyjną (`yarn build` czysto; `yarn lint` nieużyteczne — patrz Risks) — fb0b13e
+- [x] 3.3 QA w przeglądarce ze zrzutami ekranu `/cennik`, `/uslugi`, `/logopedia` — 7/8 PASS, dowody na `qa-evidence/pr-2`
