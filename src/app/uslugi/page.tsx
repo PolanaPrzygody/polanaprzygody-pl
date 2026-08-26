@@ -13,7 +13,6 @@ import { createContactHref, serviceContactSubjects } from "@/lib/contact";
 const servicePriceMap: Record<string, string[]> = {
   logopedia: [
     "diagnoza-logopedyczna",
-    "opinia-logopedyczna",
     "terapia-logopedyczna",
     "rediagnoza-logopedyczna",
   ],
@@ -356,19 +355,26 @@ export default function UslugiPage() {
                             {getServicePrices(service.id).map((price) => (
                               <li
                                 key={price.id}
-                                className="flex items-center justify-between text-polana-dark-green/80"
+                                className="text-polana-dark-green/80"
                               >
-                                <span className="text-sm">
-                                  {price.name}
-                                  {price.description && (
-                                    <span className="text-polana-dark-green/50 ml-1">
-                                      ({price.description})
-                                    </span>
-                                  )}
-                                </span>
-                                <span className="font-semibold text-polana-dark-green ml-2 whitespace-nowrap">
-                                  {formatPrice(price.price, price.currency)}
-                                </span>
+                                <div className="flex items-center justify-between">
+                                  <span className="text-sm">
+                                    {price.name}
+                                    {price.description && (
+                                      <span className="text-polana-dark-green/50 ml-1">
+                                        ({price.description})
+                                      </span>
+                                    )}
+                                  </span>
+                                  <span className="font-semibold text-polana-dark-green ml-2 whitespace-nowrap">
+                                    {formatPrice(price.price, price.currency)}
+                                  </span>
+                                </div>
+                                {price.note && (
+                                  <p className="text-sm text-polana-dark-green/60 mt-1">
+                                    {price.note}
+                                  </p>
+                                )}
                               </li>
                             ))}
                           </ul>

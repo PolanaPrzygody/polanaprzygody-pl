@@ -65,9 +65,12 @@ const serviceJsonLd = createServiceJsonLd({
     "Diagnoza i terapia logopedyczna oraz neurologopedyczna dla dzieci we Wrocławiu.",
   offers: [
     { name: "Diagnoza logopedyczna - 2 spotkania", price: 300 },
+    {
+      name: "Diagnoza logopedyczna z pisemnym raportem - 2 spotkania + raport z diagnozy",
+      price: 450,
+    },
     { name: "Terapia logopedyczna", price: 200 },
     { name: "Rediagnoza logopedyczna", price: 200 },
-    { name: "Wydanie opinii logopedycznej", price: 150 },
   ],
 });
 

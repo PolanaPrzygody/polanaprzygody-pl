@@ -50,7 +50,8 @@ const priceListJsonLd = {
   itemListElement: prices.map((item) => ({
     "@type": "Offer",
     name: item.name,
-    description: item.description,
+    description:
+      [item.description, item.note].filter(Boolean).join(". ") || undefined,
     price: typeof item.price === "number" ? item.price : undefined,
     priceSpecification:
       typeof item.price === "string"
