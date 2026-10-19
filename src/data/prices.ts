@@ -23,10 +23,10 @@ export const prices: PriceItem[] = [
   {
     id: "diagnoza-logopedyczna",
     name: "Diagnoza logopedyczna",
-    price: 300,
+    price: 400,
     currency: "zł",
     description: "2 spotkania: 1 z rodzicem, drugie z dzieckiem",
-    note: "Wariant z pisemnym raportem z diagnozy (opinia logopedyczna): dodatkowo płatny 150 zł",
+    note: "Opcjonalny pisemny opis diagnozy (opinia logopedyczna): dodatkowo 150 zł",
     category: "diagnoza",
   },
   {
@@ -36,6 +36,22 @@ export const prices: PriceItem[] = [
     currency: "zł",
     description: "w zależności od zakresu diagnozy i ilości spotkań",
     category: "diagnoza",
+  },
+  {
+    id: "konsultacja-logopedyczna",
+    name: "Konsultacja logopedyczna",
+    price: 200,
+    currency: "zł",
+    note: "Opcjonalny pisemny opis konsultacji: dodatkowo 150 zł",
+    category: "terapia",
+  },
+  {
+    id: "konsultacja-si",
+    name: "Konsultacja SI",
+    price: 200,
+    currency: "zł",
+    note: "Opcjonalny pisemny opis konsultacji: dodatkowo 150 zł",
+    category: "terapia",
   },
   {
     id: "terapia-logopedyczna",
@@ -68,9 +84,10 @@ export const prices: PriceItem[] = [
   },
   {
     id: "konsultacja-psychologa",
-    name: "Konsultacja psychologa",
+    name: "Konsultacja psychologiczna",
     price: 220,
     currency: "zł",
+    note: "Opcjonalny pisemny opis konsultacji: dodatkowo 150 zł",
     category: "terapia",
   },
 ];

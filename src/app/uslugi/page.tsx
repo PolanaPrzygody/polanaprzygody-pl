@@ -13,10 +13,11 @@ import { createContactHref, serviceContactSubjects } from "@/lib/contact";
 const servicePriceMap: Record<string, string[]> = {
   logopedia: [
     "diagnoza-logopedyczna",
+    "konsultacja-logopedyczna",
     "terapia-logopedyczna",
     "rediagnoza-logopedyczna",
   ],
-  "integracja-sensoryczna": ["diagnoza-si", "terapia-si"],
+  "integracja-sensoryczna": ["diagnoza-si", "konsultacja-si", "terapia-si"],
   tus: ["tus"],
   psycholog: ["diagnoza-psychologiczna", "konsultacja-psychologa"],
 };

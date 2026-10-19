@@ -51,6 +51,11 @@ const data: ServiceLandingData = {
         "4 spotkania: wywiad z rodzicem, dwa spotkania z dzieckiem, omówienie diagnozy z rodzicem.",
     },
     {
+      name: "Konsultacja SI",
+      value: "200 zł",
+      description: "Opcjonalny pisemny opis konsultacji: dodatkowo 150 zł.",
+    },
+    {
       name: "Terapia integracji sensorycznej",
       value: "200 zł",
       description: "Jedno indywidualne spotkanie terapeutyczne.",
@@ -85,6 +90,11 @@ const data: ServiceLandingData = {
       question: "Ile spotkań obejmuje diagnoza SI?",
       answer:
         "W Polanie Przygody diagnoza integracji sensorycznej obejmuje cztery spotkania i kosztuje 750 zł: wywiad z rodzicem, dwa spotkania z dzieckiem oraz omówienie diagnozy z rodzicem.",
+    },
+    {
+      question: "Ile kosztuje konsultacja SI?",
+      answer:
+        "Konsultacja SI kosztuje 200 zł. Opcjonalny pisemny opis konsultacji kosztuje dodatkowo 150 zł.",
     },
     {
       question: "Ile kosztuje terapia integracji sensorycznej?",
@@ -135,6 +145,8 @@ export default function IntegracjaSensorycznaPage() {
           description: metadata.description ?? "",
           offers: [
             { name: "Diagnoza integracji sensorycznej - 4 spotkania", price: 750 },
+            { name: "Konsultacja SI", price: 200 },
+            { name: "Konsultacja SI z pisemnym opisem", price: 350 },
             { name: "Terapia integracji sensorycznej", price: 200 },
           ],
         })}

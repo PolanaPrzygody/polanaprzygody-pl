@@ -331,10 +331,17 @@ const logoPrices: Array<{
 }> = [
   {
     name: "Diagnoza logopedyczna",
-    price: 300,
+    price: 400,
     currency: "zł",
     description: "2 spotkania: 1 z rodzicem, drugie z dzieckiem",
-    note: "Wariant z pisemnym raportem z diagnozy (opinia logopedyczna): dodatkowo płatny 150 zł",
+    note: "Opcjonalny pisemny opis diagnozy (opinia logopedyczna): dodatkowo 150 zł",
+  },
+  {
+    name: "Konsultacja logopedyczna",
+    price: 200,
+    currency: "zł",
+    description: "Konsultacja z logopedą",
+    note: "Opcjonalny pisemny opis konsultacji: dodatkowo 150 zł",
   },
   {
     name: "Terapia logopedyczna",

@@ -2,7 +2,12 @@ export const logopediaFaq = [
   {
     question: "Ile kosztuje diagnoza logopedyczna i ile trwa spotkań?",
     answer:
-      "Diagnoza logopedyczna w Polanie Przygody kosztuje 300 zł i obejmuje dwa spotkania: pierwsze z rodzicem, drugie z dzieckiem. Jeśli potrzebny jest pisemny raport z diagnozy (opinia logopedyczna), sporządzamy go w wariancie dodatkowo płatnym 150 zł.",
+      "Diagnoza logopedyczna w Polanie Przygody kosztuje 400 zł i obejmuje dwa spotkania: pierwsze z rodzicem, drugie z dzieckiem. Opcjonalny pisemny opis diagnozy (opinia logopedyczna) kosztuje dodatkowo 150 zł.",
+  },
+  {
+    question: "Ile kosztuje konsultacja logopedyczna?",
+    answer:
+      "Konsultacja logopedyczna kosztuje 200 zł. Opcjonalny pisemny opis konsultacji kosztuje dodatkowo 150 zł.",
   },
   {
     question: "Ile kosztuje terapia logopedyczna?",
