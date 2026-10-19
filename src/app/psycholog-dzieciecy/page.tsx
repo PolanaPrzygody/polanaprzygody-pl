@@ -48,7 +48,7 @@ const data: ServiceLandingData = {
     {
       name: "Konsultacja psychologiczna",
       value: "220 zł",
-      description: "Spotkanie dla dziecka, nastolatka lub rodzica.",
+      description: "Spotkanie dla dziecka, nastolatka lub rodzica. Opcjonalny pisemny opis konsultacji: dodatkowo 150 zł.",
     },
     {
       name: "Diagnoza psychologiczna",
@@ -78,7 +78,7 @@ const data: ServiceLandingData = {
     {
       question: "Ile kosztuje konsultacja psychologa dziecięcego?",
       answer:
-        "Konsultacja psychologiczna w Polanie Przygody kosztuje 220 zł.",
+        "Konsultacja psychologiczna w Polanie Przygody kosztuje 220 zł. Opcjonalny pisemny opis konsultacji kosztuje dodatkowo 150 zł.",
     },
     {
       question: "Ile kosztuje diagnoza psychologiczna?",
@@ -134,6 +134,7 @@ export default function PsychologDzieciecyPage() {
           description: metadata.description ?? "",
           offers: [
             { name: "Konsultacja psychologiczna", price: 220 },
+            { name: "Konsultacja psychologiczna z pisemnym opisem", price: 370 },
             { name: "Diagnoza psychologiczna", lowPrice: 700, highPrice: 1000 },
           ],
         })}

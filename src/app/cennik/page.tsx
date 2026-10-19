@@ -149,7 +149,7 @@ export default function CennikPage() {
                   />
                 </svg>
               </span>
-              Terapia
+              Terapia i konsultacje
             </h2>
 
             <div className="space-y-4">
